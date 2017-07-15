@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE library PUBLIC "-//Boost//DTD BoostBook XML V1.0//EN" "../../../boost/tools/boostbook/dtd/boostbook.dtd">
+
+<!--
+  Copyright (c) 2003-2017 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+
+  Distributed under the Boost Software License, Version 1.0. (See accompanying
+  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+-->
+
+<informaltable frame="all">
+
+  <tgroup cols="4">
+    <colspec colname="a"/>
+    <colspec colname="b"/>
+    <colspec colname="c"/>
+    <colspec colname="d"/>
+    <thead>
+      <row>
+        <entry valign="center" namest="a" nameend="d" align="center">
+          Header &lt;experimental/net&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="center" namest="a" nameend="d">
+          <bridgehead renderas="sect2">Convenience header</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="center" namest="a" nameend="d">
+          <emphasis>
+            This header is provided as a convenience for programs so that they may access
+            all networking facilities via a single, self-contained #include.
+          </emphasis>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+  <tgroup cols="4">
+    <colspec colname="a"/>
+    <colspec colname="b"/>
+    <colspec colname="c"/>
+    <colspec colname="d"/>
+    <thead>
+      <row>
+        <entry valign="top" namest="a" nameend="d" align="center">
+          Header &lt;experimental/netfwd&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="center" namest="a" nameend="d">
+          <bridgehead renderas="sect2">Forward declarations</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="top" namest="a" nameend="d">
+          <emphasis>This header contains forward declarations for many library entities.</emphasis>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+  <tgroup cols="4">
+    <colspec colname="a"/>
+    <colspec colname="b"/>
+    <colspec colname="c"/>
+    <colspec colname="d"/>
+    <thead>
+      <row>
+        <entry valign="top" namest="a" nameend="d" align="center">
+          Header &lt;experimental/executor&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="center" namest="a" nameend="d">
+          <bridgehead renderas="sect2">Asynchronous model</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="top" namest="a" nameend="a">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.async_result">async_result</link></member>
+            <member><link linkend="networking_ts.reference.async_completion">async_completion</link></member>
+            <member><link linkend="networking_ts.reference.associated_allocator">associated_allocator</link></member>
+            <member><link linkend="networking_ts.reference.get_associated_allocator">get_associated_allocator</link></member>
+            <member><link linkend="networking_ts.reference.execution_context">execution_context</link></member>
+            <member><link linkend="networking_ts.reference.execution_context__service">execution_context::service</link></member>
+            <member><link linkend="networking_ts.reference.is_executor">is_executor</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="b" nameend="b">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.executor_arg_t">executor_arg_t</link></member>
+            <member><link linkend="networking_ts.reference.uses_executor">uses_executor</link></member>
+            <member><link linkend="networking_ts.reference.uses_executor">uses_executor</link></member>
+            <member><link linkend="networking_ts.reference.associated_executor">associated_executor</link></member>
+            <member><link linkend="networking_ts.reference.get_associated_executor">get_associated_executor</link></member>
+            <member><link linkend="networking_ts.reference.executor_binder">executor_binder</link></member>
+            <member><link linkend="networking_ts.reference.bind_executor">bind_executor</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="c" nameend="c">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.executor_work_guard">executor_work_guard</link></member>
+            <member><link linkend="networking_ts.reference.make_work_guard">make_work_guard</link></member>
+            <member><link linkend="networking_ts.reference.system_executor">system_executor</link></member>
+            <member><link linkend="networking_ts.reference.system_context">system_context</link></member>
+            <member><link linkend="networking_ts.reference.bad_executor">bad_executor</link></member>
+            <member><link linkend="networking_ts.reference.executor">executor</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="d" nameend="d">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.dispatch">dispatch</link></member>
+            <member><link linkend="networking_ts.reference.post">post</link></member>
+            <member><link linkend="networking_ts.reference.defer">defer</link></member>
+            <member><link linkend="networking_ts.reference.strand">strand</link></member>
+            <member><link linkend="networking_ts.reference.use_future_t">use_future_t</link></member>
+            <member><link linkend="networking_ts.reference.async_result_lt__std__packaged_task_lt__Result_lb_Args_ellipsis__rb__gt__comma__Signature__gt_">async_result specialization for packaged_task</link></member>
+          </simplelist>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+  <tgroup cols="1">
+    <colspec colname="a"/>
+    <thead>
+      <row>
+        <entry valign="top" namest="a" nameend="a" align="center">
+          Header &lt;experimental/io_context&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="center" namest="a" nameend="a">
+          <bridgehead renderas="sect2">Basic I/O services</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="top" namest="a" nameend="a">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.io_context">io_context</link></member>
+            <member><link linkend="networking_ts.reference.io_context__executor_type">io_context::executor_type</link></member>
+          </simplelist>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+  <tgroup cols="2">
+    <colspec colname="a"/>
+    <colspec colname="b"/>
+    <thead>
+      <row>
+        <entry valign="top" namest="a" nameend="b" align="center">
+          Header &lt;experimental/timer&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="center" namest="a" nameend="b">
+          <bridgehead renderas="sect2">Timers</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="top" namest="a" nameend="a">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.wait_traits">wait_traits</link></member>
+            <member><link linkend="networking_ts.reference.basic_waitable_timer">basic_waitable_timer</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="b" nameend="b">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.high_resolution_timer">high_resolution_timer</link></member>
+            <member><link linkend="networking_ts.reference.steady_timer">steady_timer</link></member>
+            <member><link linkend="networking_ts.reference.system_timer">system_timer</link></member>
+          </simplelist>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+  <tgroup cols="4">
+    <colspec colname="a"/>
+    <colspec colname="b"/>
+    <colspec colname="c"/>
+    <colspec colname="d"/>
+    <thead>
+      <row>
+        <entry valign="top" namest="a" nameend="d" align="center">
+          Header &lt;experimental/buffer&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="center" namest="a" nameend="b">
+          <bridgehead renderas="sect2">Buffers</bridgehead>
+        </entry>
+        <entry valign="center" namest="c" nameend="d">
+          <bridgehead renderas="sect2">Buffer-oriented streams</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="top" namest="a" nameend="a">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.const_buffer">const_buffer</link></member>
+            <member><link linkend="networking_ts.reference.mutable_buffer">mutable_buffer</link></member>
+            <member><link linkend="networking_ts.reference.is_const_buffer_sequence">is_const_buffer_sequence</link></member>
+            <member><link linkend="networking_ts.reference.is_mutable_buffer_sequence">is_mutable_buffer_sequence</link></member>
+            <member><link linkend="networking_ts.reference.is_dynamic_buffer">is_dynamic_buffer</link></member>
+            <member><link linkend="networking_ts.reference.buffer_sequence_begin">buffer_sequence_begin</link></member>
+            <member><link linkend="networking_ts.reference.buffer_sequence_end">buffer_sequence_end</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="b" nameend="b">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.buffer_size">buffer_size</link></member>
+            <member><link linkend="networking_ts.reference.buffer_copy">buffer_copy</link></member>
+            <member><link linkend="networking_ts.reference.buffer">buffer</link></member>
+            <member><link linkend="networking_ts.reference.dynamic_vector_buffer">dynamic_vector_buffer</link></member>
+            <member><link linkend="networking_ts.reference.dynamic_string_buffer">dynamic_string_buffer</link></member>
+            <member><link linkend="networking_ts.reference.dynamic_buffer">dynamic_buffer</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="c" nameend="c">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.transfer_all">transfer_all</link></member>
+            <member><link linkend="networking_ts.reference.transfer_at_least">transfer_at_least</link></member>
+            <member><link linkend="networking_ts.reference.transfer_exactly">transfer_exactly</link></member>
+            <member><link linkend="networking_ts.reference.read">read</link></member>
+            <member><link linkend="networking_ts.reference.async_read">async_read</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="d" nameend="d">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.write">write</link></member>
+            <member><link linkend="networking_ts.reference.async_write">async_write</link></member>
+            <member><link linkend="networking_ts.reference.read_until">read_until</link></member>
+            <member><link linkend="networking_ts.reference.async_read_until">async_read_until</link></member>
+          </simplelist>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+  <tgroup cols="4">
+    <colspec colname="a"/>
+    <colspec colname="b"/>
+    <colspec colname="c"/>
+    <colspec colname="d"/>
+    <thead>
+      <row>
+        <entry valign="top" namest="a" nameend="d" align="center">
+          Header &lt;experimental/socket&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="top" namest="a" nameend="b">
+          <bridgehead renderas="sect2">Sockets</bridgehead>
+        </entry>
+        <entry valign="top" namest="c" nameend="c">
+          <bridgehead renderas="sect2">Socket iostreams</bridgehead>
+        </entry>
+        <entry valign="top" namest="d" nameend="d">
+          <bridgehead renderas="sect2">Socket algorithms</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="top" namest="a" nameend="a">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.socket_base">socket_base</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.broadcast">socket_base::broadcast</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.debug">socket_base::debug</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.do_not_route">socket_base::do_not_route</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.keep_alive">socket_base::keep_alive</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.linger">socket_base::linger</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.out_of_band_inline">socket_base::out_of_band_inline</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.receive_buffer_size">socket_base::receive_buffer_size</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="b" nameend="b">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.socket_base.receive_low_watermark">socket_base::receive_low_watermark</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.reuse_address">socket_base::reuse_address</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.send_buffer_size">socket_base::send_buffer_size</link></member>
+            <member><link linkend="networking_ts.reference.socket_base.send_low_watermark">socket_base::send_low_watermark</link></member>
+            <member><link linkend="networking_ts.reference.basic_socket">basic_socket</link></member>
+            <member><link linkend="networking_ts.reference.basic_datagram_socket">basic_datagram_socket</link></member>
+            <member><link linkend="networking_ts.reference.basic_stream_socket">basic_stream_socket</link></member>
+            <member><link linkend="networking_ts.reference.basic_socket_acceptor">basic_socket_acceptor</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="c" nameend="c">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.basic_socket_streambuf">basic_socket_streambuf</link></member>
+            <member><link linkend="networking_ts.reference.basic_socket_iostream">basic_socket_iostream</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="d" nameend="d">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.connect">connect</link></member>
+            <member><link linkend="networking_ts.reference.async_connect">async_connect</link></member>
+          </simplelist>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+  <tgroup cols="4">
+    <colspec colname="a"/>
+    <colspec colname="b"/>
+    <colspec colname="c"/>
+    <colspec colname="d"/>
+    <thead>
+      <row>
+        <entry valign="top" namest="a" nameend="d" align="center">
+          Header &lt;experimental/internet&gt;
+        </entry>
+      </row>
+      <row>
+        <entry valign="center" namest="a" nameend="d">
+          <bridgehead renderas="sect2">Internet protocol</bridgehead>
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry valign="top" namest="a" nameend="a">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.ip__address">ip::address</link></member>
+            <member><link linkend="networking_ts.reference.ip__address_v4">ip::address_v4</link></member>
+            <member><link linkend="networking_ts.reference.ip__address_v6">ip::address_v6</link></member>
+            <member><link linkend="networking_ts.reference.ip__bad_address_cast">ip::bad_address_cast</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_address_iterator_lt__address_v4__gt_">ip::basic_address_iterator&lt;ip::address_v4&gt;</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_address_iterator_lt__address_v6__gt_">ip::basic_address_iterator&lt;ip::address_v6&gt;</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_address_range_lt__address_v4__gt_">ip::basic_address_range&lt;ip::address_v4&gt;</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_address_range_lt__address_v6__gt_">ip::basic_address_range&lt;ip::address_v6&gt;</link></member>
+            <member><link linkend="networking_ts.reference.ip__address_v4_iterator">ip::address_v4_iterator</link></member>
+            <member><link linkend="networking_ts.reference.ip__address_v6_iterator">ip::address_v6_iterator</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="b" nameend="b">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.ip__address_v4_range">ip::address_v4_range</link></member>
+            <member><link linkend="networking_ts.reference.ip__address_v6_range">ip::address_v6_range</link></member>
+            <member><link linkend="networking_ts.reference.ip__network_v4">ip::network_v4</link></member>
+            <member><link linkend="networking_ts.reference.ip__network_v6">ip::network_v6</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_endpoint">ip::basic_endpoint</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_resolver_entry">ip::basic_resolver_entry</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_resolver_results">ip::basic_resolver_results</link></member>
+            <member><link linkend="networking_ts.reference.ip__resolver_base">ip::resolver_base</link></member>
+            <member><link linkend="networking_ts.reference.ip__basic_resolver">ip::basic_resolver</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="c" nameend="c">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.ip__host_name">ip::host_name</link></member>
+            <member><link linkend="networking_ts.reference.ip__tcp">ip::tcp</link></member>
+            <member><link linkend="networking_ts.reference.ip__tcp.endpoint">ip::tcp::endpoint</link></member>
+            <member><link linkend="networking_ts.reference.ip__tcp.acceptor">ip::tcp::acceptor</link></member>
+            <member><link linkend="networking_ts.reference.ip__tcp.socket">ip::tcp::socket</link></member>
+            <member><link linkend="networking_ts.reference.ip__tcp.resolver">ip::tcp::resolver</link></member>
+            <member><link linkend="networking_ts.reference.ip__tcp.iostream">ip::tcp::iostream</link></member>
+            <member><link linkend="networking_ts.reference.ip__tcp.no_delay">ip::tcp::no_delay</link></member>
+            <member><link linkend="networking_ts.reference.ip__udp">ip::udp</link></member>
+          </simplelist>
+        </entry>
+        <entry valign="top" namest="d" nameend="d">
+          <simplelist type="vert" columns="1">
+            <member><link linkend="networking_ts.reference.ip__udp.endpoint">ip::udp::endpoint</link></member>
+            <member><link linkend="networking_ts.reference.ip__udp.socket">ip::udp::socket</link></member>
+            <member><link linkend="networking_ts.reference.ip__udp.resolver">ip::udp::resolver</link></member>
+            <member><link linkend="networking_ts.reference.ip__v6_only">ip::v6_only</link></member>
+            <member><link linkend="networking_ts.reference.ip__unicast__hops">ip::unicast::hops</link></member>
+            <member><link linkend="networking_ts.reference.ip__multicast__join_group">ip::multicast::join_group</link></member>
+            <member><link linkend="networking_ts.reference.ip__multicast__leave_group">ip::multicast::leave_group</link></member>
+            <member><link linkend="networking_ts.reference.ip__multicast__outbound_interface">ip::multicast::outbound_interface</link></member>
+            <member><link linkend="networking_ts.reference.ip__multicast__hops">ip::multicast::hops</link></member>
+            <member><link linkend="networking_ts.reference.ip__multicast__enable_loopback">ip::multicast::enable_loopback</link></member>
+          </simplelist>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+
+</informaltable>
