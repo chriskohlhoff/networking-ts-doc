@@ -1,0 +1,387 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Networking TS</title>
+<link rel="stylesheet" href="boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Networking TS">
+<link rel="next" href="networking_ts/reference.html" title="Reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Networking TS" width="250" height="60" src="networking_ts.png"></td></tr></table>
+<hr>
+<div class="spirit-nav"><a accesskey="n" href="networking_ts/reference.html"><img src="next.png" alt="Next"></a></div>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="networking_ts"></a>Networking TS</h2></div></div></div>
+<div class="informaltable">
+<table class="table">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr><th colspan="4" align="center" valign="center">
+          Header &lt;experimental/net&gt;
+        </th></tr>
+<tr><th colspan="4" valign="center">
+          <h3>
+<a name="idm14"></a>Convenience header</h3>
+        </th></tr>
+</thead>
+<tbody><tr><td colspan="4" valign="center">
+          <span class="emphasis"><em>
+            This header is provided as a convenience for programs so that they may access
+            all networking facilities via a single, self-contained #include.
+          </em></span>
+        </td></tr></tbody>
+</table>
+<table class="table">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr><th colspan="4" align="center" valign="top">
+          Header &lt;experimental/netfwd&gt;
+        </th></tr>
+<tr><th colspan="4" valign="center">
+          <h3>
+<a name="idm29"></a>Forward declarations</h3>
+        </th></tr>
+</thead>
+<tbody><tr><td colspan="4" valign="top">
+          <span class="emphasis"><em>This header contains forward declarations for many library entities.</em></span>
+        </td></tr></tbody>
+</table>
+<table class="table">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr><th colspan="4" align="center" valign="top">
+          Header &lt;experimental/executor&gt;
+        </th></tr>
+<tr><th colspan="4" valign="center">
+          <h3>
+<a name="idm44"></a>Asynchronous model</h3>
+        </th></tr>
+</thead>
+<tbody><tr>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/async_result.html" title="async_result">async_result</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/async_completion.html" title="async_completion">async_completion</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/associated_allocator.html" title="associated_allocator">associated_allocator</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/get_associated_allocator.html" title="get_associated_allocator">get_associated_allocator</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/execution_context.html" title="execution_context">execution_context</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/execution_context__service.html" title="execution_context::service">execution_context::service</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/is_executor.html" title="is_executor">is_executor</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/executor_arg_t.html" title="executor_arg_t">executor_arg_t</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/uses_executor.html" title="uses_executor">uses_executor</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/uses_executor.html" title="uses_executor">uses_executor</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/associated_executor.html" title="associated_executor">associated_executor</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/get_associated_executor.html" title="get_associated_executor">get_associated_executor</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/executor_binder.html" title="executor_binder">executor_binder</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/bind_executor.html" title="bind_executor">bind_executor</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/executor_work_guard.html" title="executor_work_guard">executor_work_guard</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/make_work_guard.html" title="make_work_guard">make_work_guard</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/system_executor.html" title="system_executor">system_executor</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/system_context.html" title="system_context">system_context</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/bad_executor.html" title="bad_executor">bad_executor</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/executor.html" title="executor">executor</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/dispatch.html" title="dispatch">dispatch</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/post.html" title="post">post</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/defer.html" title="defer">defer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/strand.html" title="strand">strand</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/use_future_t.html" title="use_future_t">use_future_t</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/async_result_lt__std__packaged_task_lt__Result_lb_Args_ellipsis__rb__gt__comma__Signature__gt_.html" title="async_result&lt; std::packaged_task&lt; Result(Args...)&gt;, Signature &gt;">async_result specialization for packaged_task</a></td></tr>
+</table>
+        </td>
+</tr></tbody>
+</table>
+<table class="table">
+<colgroup><col></colgroup>
+<thead>
+<tr><th align="center" valign="top">
+          Header &lt;experimental/io_context&gt;
+        </th></tr>
+<tr><th valign="center">
+          <h3>
+<a name="idm114"></a>Basic I/O services</h3>
+        </th></tr>
+</thead>
+<tbody><tr><td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/io_context.html" title="io_context">io_context</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/io_context__executor_type.html" title="io_context::executor_type">io_context::executor_type</a></td></tr>
+</table>
+        </td></tr></tbody>
+</table>
+<table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr><th colspan="2" align="center" valign="top">
+          Header &lt;experimental/timer&gt;
+        </th></tr>
+<tr><th colspan="2" valign="center">
+          <h3>
+<a name="idm131"></a>Timers</h3>
+        </th></tr>
+</thead>
+<tbody><tr>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/wait_traits.html" title="wait_traits">wait_traits</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/basic_waitable_timer.html" title="basic_waitable_timer">basic_waitable_timer</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/high_resolution_timer.html" title="high_resolution_timer">high_resolution_timer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/steady_timer.html" title="steady_timer">steady_timer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/system_timer.html" title="system_timer">system_timer</a></td></tr>
+</table>
+        </td>
+</tr></tbody>
+</table>
+<table class="table">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr><th colspan="4" align="center" valign="top">
+          Header &lt;experimental/buffer&gt;
+        </th></tr>
+<tr>
+<th colspan="2" valign="center">
+          <h3>
+<a name="idm158"></a>Buffers</h3>
+        </th>
+<th colspan="2" valign="center">
+          <h3>
+<a name="idm160"></a>Buffer-oriented streams</h3>
+        </th>
+</tr>
+</thead>
+<tbody><tr>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/const_buffer.html" title="const_buffer">const_buffer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/mutable_buffer.html" title="mutable_buffer">mutable_buffer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/is_const_buffer_sequence.html" title="is_const_buffer_sequence">is_const_buffer_sequence</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/is_mutable_buffer_sequence.html" title="is_mutable_buffer_sequence">is_mutable_buffer_sequence</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/is_dynamic_buffer.html" title="is_dynamic_buffer">is_dynamic_buffer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/buffer_sequence_begin.html" title="buffer_sequence_begin">buffer_sequence_begin</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/buffer_sequence_end.html" title="buffer_sequence_end">buffer_sequence_end</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/buffer_size.html" title="buffer_size">buffer_size</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/buffer_copy.html" title="buffer_copy">buffer_copy</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/buffer.html" title="buffer">buffer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/dynamic_vector_buffer.html" title="dynamic_vector_buffer">dynamic_vector_buffer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/dynamic_string_buffer.html" title="dynamic_string_buffer">dynamic_string_buffer</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/dynamic_buffer.html" title="dynamic_buffer">dynamic_buffer</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/transfer_all.html" title="transfer_all">transfer_all</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/transfer_at_least.html" title="transfer_at_least">transfer_at_least</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/transfer_exactly.html" title="transfer_exactly">transfer_exactly</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/read.html" title="read">read</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/async_read.html" title="async_read">async_read</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/write.html" title="write">write</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/async_write.html" title="async_write">async_write</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/read_until.html" title="read_until">read_until</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/async_read_until.html" title="async_read_until">async_read_until</a></td></tr>
+</table>
+        </td>
+</tr></tbody>
+</table>
+<table class="table">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr><th colspan="4" align="center" valign="top">
+          Header &lt;experimental/socket&gt;
+        </th></tr>
+<tr>
+<th colspan="2" valign="top">
+          <h3>
+<a name="idm225"></a>Sockets</h3>
+        </th>
+<th valign="top">
+          <h3>
+<a name="idm227"></a>Socket iostreams</h3>
+        </th>
+<th valign="top">
+          <h3>
+<a name="idm229"></a>Socket algorithms</h3>
+        </th>
+</tr>
+</thead>
+<tbody><tr>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/socket_base.html" title="socket_base">socket_base</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/broadcast.html" title="socket_base::broadcast">socket_base::broadcast</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/debug.html" title="socket_base::debug">socket_base::debug</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/do_not_route.html" title="socket_base::do_not_route">socket_base::do_not_route</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/keep_alive.html" title="socket_base::keep_alive">socket_base::keep_alive</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/linger.html" title="socket_base::linger">socket_base::linger</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/out_of_band_inline.html" title="socket_base::out_of_band_inline">socket_base::out_of_band_inline</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/receive_buffer_size.html" title="socket_base::receive_buffer_size">socket_base::receive_buffer_size</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/socket_base/receive_low_watermark.html" title="socket_base::receive_low_watermark">socket_base::receive_low_watermark</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/reuse_address.html" title="socket_base::reuse_address">socket_base::reuse_address</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/send_buffer_size.html" title="socket_base::send_buffer_size">socket_base::send_buffer_size</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/socket_base/send_low_watermark.html" title="socket_base::send_low_watermark">socket_base::send_low_watermark</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/basic_socket.html" title="basic_socket">basic_socket</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/basic_datagram_socket.html" title="basic_datagram_socket">basic_datagram_socket</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/basic_stream_socket.html" title="basic_stream_socket">basic_stream_socket</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/basic_socket_acceptor.html" title="basic_socket_acceptor">basic_socket_acceptor</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/basic_socket_streambuf.html" title="basic_socket_streambuf">basic_socket_streambuf</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/basic_socket_iostream.html" title="basic_socket_iostream">basic_socket_iostream</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/connect.html" title="connect">connect</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/async_connect.html" title="async_connect">async_connect</a></td></tr>
+</table>
+        </td>
+</tr></tbody>
+</table>
+<table class="table">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr><th colspan="4" align="center" valign="top">
+          Header &lt;experimental/internet&gt;
+        </th></tr>
+<tr><th colspan="4" valign="center">
+          <h3>
+<a name="idm290"></a>Internet protocol</h3>
+        </th></tr>
+</thead>
+<tbody><tr>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/ip__address.html" title="ip::address">ip::address</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__address_v4.html" title="ip::address_v4">ip::address_v4</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__address_v6.html" title="ip::address_v6">ip::address_v6</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__bad_address_cast.html" title="ip::bad_address_cast">ip::bad_address_cast</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_address_iterator_lt__address_v4__gt_.html" title="ip::basic_address_iterator&lt; address_v4 &gt;">ip::basic_address_iterator&lt;ip::address_v4&gt;</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_address_iterator_lt__address_v6__gt_.html" title="ip::basic_address_iterator&lt; address_v6 &gt;">ip::basic_address_iterator&lt;ip::address_v6&gt;</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_address_range_lt__address_v4__gt_.html" title="ip::basic_address_range&lt; address_v4 &gt;">ip::basic_address_range&lt;ip::address_v4&gt;</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_address_range_lt__address_v6__gt_.html" title="ip::basic_address_range&lt; address_v6 &gt;">ip::basic_address_range&lt;ip::address_v6&gt;</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__address_v4_iterator.html" title="ip::address_v4_iterator">ip::address_v4_iterator</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__address_v6_iterator.html" title="ip::address_v6_iterator">ip::address_v6_iterator</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/ip__address_v4_range.html" title="ip::address_v4_range">ip::address_v4_range</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__address_v6_range.html" title="ip::address_v6_range">ip::address_v6_range</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__network_v4.html" title="ip::network_v4">ip::network_v4</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__network_v6.html" title="ip::network_v6">ip::network_v6</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_endpoint.html" title="ip::basic_endpoint">ip::basic_endpoint</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_resolver_entry.html" title="ip::basic_resolver_entry">ip::basic_resolver_entry</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_resolver_results.html" title="ip::basic_resolver_results">ip::basic_resolver_results</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__resolver_base.html" title="ip::resolver_base">ip::resolver_base</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__basic_resolver.html" title="ip::basic_resolver">ip::basic_resolver</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/ip__host_name.html" title="ip::host_name">ip::host_name</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__tcp.html" title="ip::tcp">ip::tcp</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__tcp/endpoint.html" title="ip::tcp::endpoint">ip::tcp::endpoint</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__tcp/acceptor.html" title="ip::tcp::acceptor">ip::tcp::acceptor</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__tcp/socket.html" title="ip::tcp::socket">ip::tcp::socket</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__tcp/resolver.html" title="ip::tcp::resolver">ip::tcp::resolver</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__tcp/iostream.html" title="ip::tcp::iostream">ip::tcp::iostream</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__tcp/no_delay.html" title="ip::tcp::no_delay">ip::tcp::no_delay</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__udp.html" title="ip::udp">ip::udp</a></td></tr>
+</table>
+        </td>
+<td valign="top">
+          <table border="0" summary="Simple list" class="simplelist">
+<tr><td><a class="link" href="networking_ts/reference/ip__udp/endpoint.html" title="ip::udp::endpoint">ip::udp::endpoint</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__udp/socket.html" title="ip::udp::socket">ip::udp::socket</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__udp/resolver.html" title="ip::udp::resolver">ip::udp::resolver</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__v6_only.html" title="ip::v6_only">ip::v6_only</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__unicast__hops.html" title="ip::unicast::hops">ip::unicast::hops</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__multicast__join_group.html" title="ip::multicast::join_group">ip::multicast::join_group</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__multicast__leave_group.html" title="ip::multicast::leave_group">ip::multicast::leave_group</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__multicast__outbound_interface.html" title="ip::multicast::outbound_interface">ip::multicast::outbound_interface</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__multicast__hops.html" title="ip::multicast::hops">ip::multicast::hops</a></td></tr>
+<tr><td><a class="link" href="networking_ts/reference/ip__multicast__enable_loopback.html" title="ip::multicast::enable_loopback">ip::multicast::enable_loopback</a></td></tr>
+</table>
+        </td>
+</tr></tbody>
+</table>
+</div>
+<p>
+    Copyright (c) 2003 - 2017 Christopher M. Kohlhoff
+  </p>
+<p>
+    Distributed under the Boost Software License, Version 1.0. (See accompanying
+    file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+  </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: July 15, 2017 at 14:51:56 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav"><a accesskey="n" href="networking_ts/reference.html"><img src="next.png" alt="Next"></a></div>
+</body>
+</html>
