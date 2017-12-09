@@ -48,7 +48,8 @@
             not(contains(compoundname, '::detail')) and
             not(contains(compoundname, '::service::key')) and
             not(contains(compoundname, 'buffers_iterator')) and
-            not(contains(compoundname, '_handler'))">
+            not(contains(compoundname, '_handler')) and
+            not(contains(compoundname, 'std_allocator_void'))">
           <xsl:call-template name="class"/>
         </xsl:if>
       </xsl:when>
@@ -60,7 +61,8 @@
             not(contains(name, 'networking_ts_handler')) and
             not(contains(name, 'buffers_begin')) and
             not(contains(name, 'buffers_end')) and
-            not(contains(name, '_helper'))">
+            not(contains(name, '_helper')) and
+            not(contains(name, 'std_allocator_void'))">
           <xsl:call-template name="namespace-memberdef"/>
         </xsl:if>
       </xsl:otherwise>
@@ -519,6 +521,13 @@
       <xsl:text>\]</xsl:text>
       <xsl:call-template name="escape-name">
         <xsl:with-param name="text" select="substring-after($text, ']')"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="contains($text, '...')">
+      <xsl:value-of select="substring-before($text, '...')"/>
+      <xsl:text>\.\.\.</xsl:text>
+      <xsl:call-template name="escape-name">
+        <xsl:with-param name="text" select="substring-after($text, '...')"/>
       </xsl:call-template>
     </xsl:when>
     <xsl:otherwise>
@@ -1096,9 +1105,25 @@
 </xsl:text>
 <xsl:if test="count(type/ref) &gt; 0 and not(contains(type, '*'))">
   <xsl:variable name="class-refid">
-    <xsl:for-each select="type/ref[1]">
-      <xsl:value-of select="@refid"/>
-    </xsl:for-each>
+    <xsl:choose>
+      <xsl:when test="type='basic_address_iterator&lt; address_v4 &gt;'">
+        <xsl:text>classstd_1_1experimental_1_1net_1_1v1_1_1ip_1_1basic__address__iterator_3_01address__v4_01_4</xsl:text>
+      </xsl:when>
+      <xsl:when test="type='basic_address_iterator&lt; address_v6 &gt;'">
+        <xsl:text>classstd_1_1experimental_1_1net_1_1v1_1_1ip_1_1basic__address__iterator_3_01address__v6_01_4</xsl:text>
+      </xsl:when>
+      <xsl:when test="type='basic_address_range&lt; address_v4 &gt;'">
+        <xsl:text>classstd_1_1experimental_1_1net_1_1v1_1_1ip_1_1basic__address__range_3_01address__v4_01_4</xsl:text>
+      </xsl:when>
+      <xsl:when test="type='basic_address_range&lt; address_v6 &gt;'">
+        <xsl:text>classstd_1_1experimental_1_1net_1_1v1_1_1ip_1_1basic__address__range_3_01address__v6_01_4</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:for-each select="type/ref[1]">
+          <xsl:value-of select="@refid"/>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
   <xsl:variable name="name" select="name"/>
   <xsl:for-each select="/doxygen/compounddef[@id=$class-refid]">
