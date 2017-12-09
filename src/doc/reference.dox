@@ -206,7 +206,8 @@ PREDEFINED             = GENERATING_DOCUMENTATION \
                          NET_TS_CONST_BUFFER=const_buffer \
                          NET_TS_MUTABLE_BUFFER=mutable_buffer \
                          NET_TS_SYNC_OP_VOID=void \
-                         NET_TS_STRING_VIEW_PARAM=string_view
+                         NET_TS_STRING_VIEW_PARAM=string_view \
+                         NET_TS_NO_DEPRECATED=1
 EXPAND_AS_DEFINED      = 
 SKIP_FUNCTION_MACROS   = YES
 #---------------------------------------------------------------------------
