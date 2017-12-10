@@ -69,7 +69,7 @@
             <span><a name="networking_ts.reference.basic_socket_acceptor.async_accept.overload1.example"></a></span><a class="link" href="overload1.html#networking_ts.reference.basic_socket_acceptor.async_accept.overload1.example">Example</a>
           </h6>
 <pre class="programlisting"><span class="keyword">void</span> <span class="identifier">accept_handler</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">error</span><span class="special">,</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="identifier">peer</span><span class="special">)</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="identifier">peer</span><span class="special">)</span>
 <span class="special">{</span>
   <span class="keyword">if</span> <span class="special">(!</span><span class="identifier">error</span><span class="special">)</span>
   <span class="special">{</span>
@@ -79,7 +79,7 @@
 
 <span class="special">...</span>
 
-<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">acceptor</span> <span class="identifier">acceptor</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">acceptor</span> <span class="identifier">acceptor</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
 <span class="special">...</span>
 <span class="identifier">acceptor</span><span class="special">.</span><span class="identifier">async_accept</span><span class="special">(</span><span class="identifier">accept_handler</span><span class="special">);</span>
 </pre>

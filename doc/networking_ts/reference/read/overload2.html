@@ -87,7 +87,7 @@
 <p>
           To read into a single data buffer use the <a class="link" href="../buffer.html" title="buffer"><code class="computeroutput"><span class="identifier">buffer</span></code></a> function as follows:
         </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">),</span> <span class="identifier">ec</span><span class="special">);</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">),</span> <span class="identifier">ec</span><span class="special">);</span>
 </pre>
 <p>
           See the <a class="link" href="../buffer.html" title="buffer"><code class="computeroutput"><span class="identifier">buffer</span></code></a>
@@ -101,9 +101,9 @@
 <p>
           This overload is equivalent to calling:
         </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span>
     <span class="identifier">s</span><span class="special">,</span> <span class="identifier">buffers</span><span class="special">,</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">transfer_all</span><span class="special">(),</span> <span class="identifier">ec</span><span class="special">);</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">transfer_all</span><span class="special">(),</span> <span class="identifier">ec</span><span class="special">);</span>
 </pre>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

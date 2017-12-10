@@ -319,7 +319,7 @@
         Performing a blocking wait (C++11):
       </p>
 <pre class="programlisting"><span class="comment">// Construct a timer without setting an expiry time.</span>
-<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">steady_timer</span> <span class="identifier">timer</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">steady_timer</span> <span class="identifier">timer</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
 
 <span class="comment">// Set an expiry time relative to now.</span>
 <span class="identifier">timer</span><span class="special">.</span><span class="identifier">expires_after</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">seconds</span><span class="special">(</span><span class="number">5</span><span class="special">));</span>
@@ -341,7 +341,7 @@
 <span class="special">...</span>
 
 <span class="comment">// Construct a timer with an absolute expiry time.</span>
-<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">steady_timer</span> <span class="identifier">timer</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">,</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">steady_timer</span> <span class="identifier">timer</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">,</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">steady_clock</span><span class="special">::</span><span class="identifier">now</span><span class="special">()</span> <span class="special">+</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span><span class="special">::</span><span class="identifier">seconds</span><span class="special">(</span><span class="number">60</span><span class="special">));</span>
 
 <span class="comment">// Start an asynchronous wait.</span>
@@ -373,7 +373,7 @@
 
 <span class="keyword">void</span> <span class="identifier">on_timeout</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">e</span><span class="special">)</span>
 <span class="special">{</span>
-  <span class="keyword">if</span> <span class="special">(</span><span class="identifier">e</span> <span class="special">!=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_aborted</span><span class="special">)</span>
+  <span class="keyword">if</span> <span class="special">(</span><span class="identifier">e</span> <span class="special">!=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_aborted</span><span class="special">)</span>
   <span class="special">{</span>
     <span class="comment">// Timer was not cancelled, take necessary action.</span>
   <span class="special">}</span>
