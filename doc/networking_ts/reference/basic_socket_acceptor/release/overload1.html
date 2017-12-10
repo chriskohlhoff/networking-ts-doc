@@ -28,7 +28,7 @@
 <p>
             This function causes all outstanding asynchronous accept operations to
             finish immediately, and the handlers for cancelled operations will be
-            passed the std::experimental::net::error::operation_aborted error. Ownership
+            passed the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_aborted</span></code> error. Ownership
             of the native acceptor is then transferred to the caller.
           </p>
 <h6>
@@ -50,7 +50,7 @@
           </h6>
 <p>
             This function is unsupported on Windows versions prior to Windows 8.1,
-            and will fail with std::experimental::net::error::operation_not_supported
+            and will fail with <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_not_supported</span></code>
             on these platforms.
           </p>
 </div>

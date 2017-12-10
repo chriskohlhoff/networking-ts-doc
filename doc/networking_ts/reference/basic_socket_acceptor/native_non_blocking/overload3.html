@@ -43,14 +43,14 @@
 <dd><p>
                   If <code class="computeroutput"><span class="keyword">true</span></code>, the underlying
                   acceptor is put into non-blocking mode and direct system calls
-                  may fail with std::experimental::net::error::would_block (or the
-                  equivalent system error).
+                  may fail with <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">would_block</span></code>
+                  (or the equivalent system error).
                 </p></dd>
 <dt><span class="term">ec</span></dt>
 <dd><p>
                   Set to indicate what error occurred, if any. If the <code class="computeroutput"><span class="identifier">mode</span></code> is <code class="computeroutput"><span class="keyword">false</span></code>,
                   but the current value of <code class="computeroutput"><span class="identifier">non_blocking</span><span class="special">()</span></code> is <code class="computeroutput"><span class="keyword">true</span></code>,
-                  this function fails with std::experimental::net::error::invalid_argument,
+                  this function fails with <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">invalid_argument</span></code>,
                   as the combination does not make sense.
                 </p></dd>
 </dl>

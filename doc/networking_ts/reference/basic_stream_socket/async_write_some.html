@@ -63,7 +63,7 @@
                 Regardless of whether the asynchronous operation completes immediately
                 or not, the handler will not be invoked from within this function.
                 Invocation of the handler will be performed in a manner equivalent
-                to using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">post</span><span class="special">()</span></code>.
+                to using <a class="link" href="../post.html" title="post"><code class="computeroutput"><span class="identifier">post</span></code></a>.
               </p>
 </dd>
 </dl>
@@ -74,23 +74,22 @@
         </h6>
 <p>
           The write operation may not transmit all of the data to the peer. Consider
-          using the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">async_write</span></code> function if you need to ensure
-          that all data is written before the asynchronous operation completes.
+          using the <a class="link" href="../async_write.html" title="async_write"><code class="computeroutput"><span class="identifier">async_write</span></code></a> function if you need
+          to ensure that all data is written before the asynchronous operation completes.
         </p>
 <h6>
 <a name="networking_ts.reference.basic_stream_socket.async_write_some.h2"></a>
           <span><a name="networking_ts.reference.basic_stream_socket.async_write_some.example"></a></span><a class="link" href="async_write_some.html#networking_ts.reference.basic_stream_socket.async_write_some.example">Example</a>
         </h6>
 <p>
-          To write a single data buffer use the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer</span></code>
-          function as follows:
+          To write a single data buffer use the <a class="link" href="../buffer.html" title="buffer"><code class="computeroutput"><span class="identifier">buffer</span></code></a> function as follows:
         </p>
-<pre class="programlisting"><span class="identifier">socket</span><span class="special">.</span><span class="identifier">async_write_some</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">),</span> <span class="identifier">handler</span><span class="special">);</span>
+<pre class="programlisting"><span class="identifier">socket</span><span class="special">.</span><span class="identifier">async_write_some</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">),</span> <span class="identifier">handler</span><span class="special">);</span>
 </pre>
 <p>
-          See the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer</span></code> documentation for information
-          on writing multiple buffers in one go, and how to use it with arrays, boost::array
-          or std::vector.
+          See the <a class="link" href="../buffer.html" title="buffer"><code class="computeroutput"><span class="identifier">buffer</span></code></a>
+          documentation for information on writing multiple buffers in one go, and
+          how to use it with arrays, boost::array or std::vector.
         </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

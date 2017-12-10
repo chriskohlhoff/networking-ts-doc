@@ -69,7 +69,7 @@
 </p>
 <pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handler</span><span class="special">(</span>
   <span class="comment">// Result of operation. if the sequence is empty, set to</span>
-  <span class="comment">// std::experimental::net::error::not_found. Otherwise, contains the</span>
+  <span class="comment">// std::experimental::net::v1::error::not_found. Otherwise, contains the</span>
   <span class="comment">// error from the last connection attempt.</span>
   <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">error</span><span class="special">,</span>
 
@@ -82,7 +82,7 @@
                 Regardless of whether the asynchronous operation completes immediately
                 or not, the handler will not be invoked from within this function.
                 Invocation of the handler will be performed in a manner equivalent
-                to using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">post</span><span class="special">()</span></code>.
+                to using <a class="link" href="../post.html" title="post"><code class="computeroutput"><span class="identifier">post</span></code></a>.
               </p>
 </dd>
 </dl>
@@ -93,7 +93,7 @@
         </h6>
 <pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">endpoint</span><span class="special">&gt;</span> <span class="identifier">endpoints</span> <span class="special">=</span> <span class="special">...;</span>
 <span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="identifier">s</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
-<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">async_connect</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">async_connect</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span>
     <span class="identifier">endpoints</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">endpoints</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span>
     <span class="identifier">connect_handler</span><span class="special">);</span>
 

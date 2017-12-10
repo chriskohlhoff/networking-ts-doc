@@ -45,32 +45,18 @@
                 </p>
               </th>
 </tr></thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/bytes_type.html" title="ip::address_v4::bytes_type"><span class="bold"><strong>bytes_type</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/iterator.html" title="ip::basic_address_range&lt; address_v4 &gt;::iterator"><span class="bold"><strong>iterator</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  The type used to represent an address as an array of bytes.
+                  The type of an iterator that points into the range.
                 </p>
               </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/uint_type.html" title="ip::address_v4::uint_type"><span class="bold"><strong>uint_type</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  The type used to represent an address as an unsigned integer.
-                </p>
-              </td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <h5>
 <a name="networking_ts.reference.ip__address_v4_range.h1"></a>
@@ -98,18 +84,15 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/address_v4.html" title="ip::address_v4::address_v4"><span class="bold"><strong>address_v4</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/basic_address_range.html" title="ip::basic_address_range&lt; address_v4 &gt;::basic_address_range"><span class="bold"><strong>basic_address_range</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Default constructor.
+                  Construct an empty range.
                 </p>
                 <p>
-                  Construct an address from raw bytes.
-                </p>
-                <p>
-                  Construct an address from an unsigned integer in host byte order.
+                  Construct an range that represents the given range of addresses.
                 </p>
                 <p>
                   Copy constructor.
@@ -119,120 +102,72 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/any.html" title="ip::address_v4::any"><span class="bold"><strong>any</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/begin.html" title="ip::basic_address_range&lt; address_v4 &gt;::begin"><span class="bold"><strong>begin</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Obtain an address object that represents any address.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/broadcast.html" title="ip::address_v4::broadcast"><span class="bold"><strong>broadcast</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Obtain an address object that represents the broadcast address.
+                  Obtain an iterator that points to the start of the range.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/is_loopback.html" title="ip::address_v4::is_loopback"><span class="bold"><strong>is_loopback</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/empty.html" title="ip::basic_address_range&lt; address_v4 &gt;::empty"><span class="bold"><strong>empty</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Determine whether the address is a loopback address.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/is_multicast.html" title="ip::address_v4::is_multicast"><span class="bold"><strong>is_multicast</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Determine whether the address is a multicast address.
+                  Determine whether the range is empty.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/is_unspecified.html" title="ip::address_v4::is_unspecified"><span class="bold"><strong>is_unspecified</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/end.html" title="ip::basic_address_range&lt; address_v4 &gt;::end"><span class="bold"><strong>end</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Determine whether the address is unspecified.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/loopback.html" title="ip::address_v4::loopback"><span class="bold"><strong>loopback</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Obtain an address object that represents the loopback address.
+                  Obtain an iterator that points to the end of the range.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/operator_eq_.html" title="ip::address_v4::operator="><span class="bold"><strong>operator=</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/find.html" title="ip::basic_address_range&lt; address_v4 &gt;::find"><span class="bold"><strong>find</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Assign from another address.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/to_bytes.html" title="ip::address_v4::to_bytes"><span class="bold"><strong>to_bytes</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Get the address in bytes, in network byte order.
+                  Find an address in the range.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/to_string.html" title="ip::address_v4::to_string"><span class="bold"><strong>to_string</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/operator_eq_.html" title="ip::basic_address_range&lt; address_v4 &gt;::operator="><span class="bold"><strong>operator=</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Get the address as a string in dotted decimal format.
+                  Assignment operator.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="ip__address_v4/to_uint.html" title="ip::address_v4::to_uint"><span class="bold"><strong>to_uint</strong></span></a>
+                  <a class="link" href="ip__basic_address_range_lt__address_v4__gt_/size.html" title="ip::basic_address_range&lt; address_v4 &gt;::size"><span class="bold"><strong>size</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Get the address as an unsigned integer in host byte order.
+                  Return the size of the range.
                 </p>
               </td>
 </tr>
@@ -240,168 +175,6 @@
 </table></div>
 <h5>
 <a name="networking_ts.reference.ip__address_v4_range.h2"></a>
-        <span><a name="networking_ts.reference.ip__address_v4_range.friends"></a></span><a class="link" href="ip__address_v4_range.html#networking_ts.reference.ip__address_v4_range.friends">Friends</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/operator_not__eq_.html" title="ip::address_v4::operator!="><span class="bold"><strong>operator!=</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Compare two addresses for inequality.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/operator_lt_.html" title="ip::address_v4::operator&lt;"><span class="bold"><strong>operator&lt;</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Compare addresses for ordering.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/operator_lt__eq_.html" title="ip::address_v4::operator&lt;="><span class="bold"><strong>operator&lt;=</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Compare addresses for ordering.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/operator_eq__eq_.html" title="ip::address_v4::operator=="><span class="bold"><strong>operator==</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Compare two addresses for equality.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/operator_gt_.html" title="ip::address_v4::operator&gt;"><span class="bold"><strong>operator&gt;</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Compare addresses for ordering.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/operator_gt__eq_.html" title="ip::address_v4::operator&gt;="><span class="bold"><strong>operator&gt;=</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Compare addresses for ordering.
-                </p>
-              </td>
-</tr>
-</tbody>
-</table></div>
-<h5>
-<a name="networking_ts.reference.ip__address_v4_range.h3"></a>
-        <span><a name="networking_ts.reference.ip__address_v4_range.related_functions"></a></span><a class="link" href="ip__address_v4_range.html#networking_ts.reference.ip__address_v4_range.related_functions">Related
-        Functions</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/make_address_v4.html" title="ip::address_v4::make_address_v4"><span class="bold"><strong>make_address_v4</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Create an IPv4 address from raw bytes in network order.
-                </p>
-                <p>
-                  Create an IPv4 address from an unsigned integer in host byte order.
-                </p>
-                <p>
-                  Create an IPv4 address from an IP address string in dotted decimal
-                  form.
-                </p>
-                <p>
-                  Create an IPv4 address from a IPv4-mapped IPv6 address.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="ip__address_v4/make_network_v4.html" title="ip::address_v4::make_network_v4"><span class="bold"><strong>make_network_v4</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Create an IPv4 network from an address and prefix length.
-                </p>
-                <p>
-                  Create an IPv4 network from an address and netmask.
-                </p>
-              </td>
-</tr>
-</tbody>
-</table></div>
-<p>
-        The std::experimental::net::ip::address_v4 class provides the ability to
-        use and manipulate IP version 4 addresses.
-      </p>
-<h5>
-<a name="networking_ts.reference.ip__address_v4_range.h4"></a>
         <span><a name="networking_ts.reference.ip__address_v4_range.thread_safety"></a></span><a class="link" href="ip__address_v4_range.html#networking_ts.reference.ip__address_v4_range.thread_safety">Thread
         Safety</a>
       </h5>

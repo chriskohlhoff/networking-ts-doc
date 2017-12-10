@@ -20,8 +20,9 @@
 <a name="networking_ts.reference.buffer_copy"></a><a class="link" href="buffer_copy.html" title="buffer_copy">buffer_copy</a>
 </h3></div></div></div>
 <p>
-        The std::experimental::net::buffer_copy function is used to copy bytes from
-        a source buffer (or buffer sequence) to a target buffer (or buffer sequence).
+        The <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">buffer_copy</span></code>
+        function is used to copy bytes from a source buffer (or buffer sequence)
+        to a target buffer (or buffer sequence).
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">typename</span> <span class="identifier">MutableBufferSequence</span><span class="special">,</span>
@@ -72,9 +73,9 @@
         copy operation.
       </p>
 <p>
-        Note that <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_copy</span></code>
-        is implemented in terms of <code class="computeroutput"><span class="identifier">memcpy</span></code>,
-        and consequently it cannot be used to copy between overlapping memory regions.
+        Note that <a class="link" href="buffer_copy.html" title="buffer_copy"><code class="computeroutput"><span class="identifier">buffer_copy</span></code></a> is implemented in terms
+        of <code class="computeroutput"><span class="identifier">memcpy</span></code>, and consequently
+        it cannot be used to copy between overlapping memory regions.
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

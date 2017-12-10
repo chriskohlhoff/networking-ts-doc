@@ -862,6 +862,7 @@ networking_ts/reference/ip__address/make_address/overload5.html
 networking_ts/reference/ip__address/make_address/overload6.html
 networking_ts/reference/ip__address/operator_not__eq_.html
 networking_ts/reference/ip__address/operator_lt_.html
+networking_ts/reference/ip__address/operator_lt__lt_.html
 networking_ts/reference/ip__address/operator_lt__eq_.html
 networking_ts/reference/ip__address/operator_eq_.html
 networking_ts/reference/ip__address/operator_eq_/overload1.html
@@ -901,6 +902,9 @@ networking_ts/reference/ip__address_v4/make_network_v4/overload1.html
 networking_ts/reference/ip__address_v4/make_network_v4/overload2.html
 networking_ts/reference/ip__address_v4/operator_not__eq_.html
 networking_ts/reference/ip__address_v4/operator_lt_.html
+networking_ts/reference/ip__address_v4/operator_lt__lt_.html
+networking_ts/reference/ip__address_v4/operator_lt__lt_/overload1.html
+networking_ts/reference/ip__address_v4/operator_lt__lt_/overload2.html
 networking_ts/reference/ip__address_v4/operator_lt__eq_.html
 networking_ts/reference/ip__address_v4/operator_eq_.html
 networking_ts/reference/ip__address_v4/operator_eq__eq_.html
@@ -943,6 +947,9 @@ networking_ts/reference/ip__address_v6/make_address_v6/overload8.html
 networking_ts/reference/ip__address_v6/make_network_v6.html
 networking_ts/reference/ip__address_v6/operator_not__eq_.html
 networking_ts/reference/ip__address_v6/operator_lt_.html
+networking_ts/reference/ip__address_v6/operator_lt__lt_.html
+networking_ts/reference/ip__address_v6/operator_lt__lt_/overload1.html
+networking_ts/reference/ip__address_v6/operator_lt__lt_/overload2.html
 networking_ts/reference/ip__address_v6/operator_lt__eq_.html
 networking_ts/reference/ip__address_v6/operator_eq_.html
 networking_ts/reference/ip__address_v6/operator_eq__eq_.html
@@ -1039,6 +1046,7 @@ networking_ts/reference/ip__basic_endpoint/data/overload2.html
 networking_ts/reference/ip__basic_endpoint/data_type.html
 networking_ts/reference/ip__basic_endpoint/operator_not__eq_.html
 networking_ts/reference/ip__basic_endpoint/operator_lt_.html
+networking_ts/reference/ip__basic_endpoint/operator_lt__lt_.html
 networking_ts/reference/ip__basic_endpoint/operator_lt__eq_.html
 networking_ts/reference/ip__basic_endpoint/operator_eq_.html
 networking_ts/reference/ip__basic_endpoint/operator_eq_/overload1.html

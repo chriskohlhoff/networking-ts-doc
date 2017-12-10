@@ -31,8 +31,8 @@
 <p>
             This function causes all outstanding asynchronous connect, send and receive
             operations to finish immediately, and the handlers for cancelled operations
-            will be passed the std::experimental::net::error::operation_aborted error.
-            Ownership of the native socket is then transferred to the caller.
+            will be passed the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_aborted</span></code>
+            error. Ownership of the native socket is then transferred to the caller.
           </p>
 <h6>
 <a name="networking_ts.reference.basic_stream_socket.release.overload1.h0"></a>
@@ -53,7 +53,7 @@
           </h6>
 <p>
             This function is unsupported on Windows versions prior to Windows 8.1,
-            and will fail with std::experimental::net::error::operation_not_supported
+            and will fail with <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_not_supported</span></code>
             on these platforms.
           </p>
 </div>

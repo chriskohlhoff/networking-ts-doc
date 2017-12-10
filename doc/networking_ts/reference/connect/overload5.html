@@ -94,7 +94,7 @@
 <dl>
 <dt><span class="term">std::system_error</span></dt>
 <dd><p>
-                Thrown on failure. If the sequence is empty, the associated <code class="computeroutput"><span class="identifier">error_code</span></code> is std::experimental::net::error::not_found.
+                Thrown on failure. If the sequence is empty, the associated <code class="computeroutput"><span class="identifier">error_code</span></code> is <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">not_found</span></code>.
                 Otherwise, contains the error from the last connection attempt.
               </p></dd>
 </dl>
@@ -120,12 +120,13 @@
 <span class="special">};</span>
 </pre>
 <p>
-          It would be used with the std::experimental::net::connect function as follows:
+          It would be used with the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">connect</span></code>
+          function as follows:
         </p>
 <pre class="programlisting"><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span> <span class="identifier">r</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
 <span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span><span class="special">::</span><span class="identifier">query</span> <span class="identifier">q</span><span class="special">(</span><span class="string">"host"</span><span class="special">,</span> <span class="string">"service"</span><span class="special">);</span>
 <span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="identifier">s</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
-<span class="identifier">tcp</span><span class="special">::</span><span class="identifier">endpoint</span> <span class="identifier">e</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">connect</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span>
+<span class="identifier">tcp</span><span class="special">::</span><span class="identifier">endpoint</span> <span class="identifier">e</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">connect</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span>
     <span class="identifier">r</span><span class="special">.</span><span class="identifier">resolve</span><span class="special">(</span><span class="identifier">q</span><span class="special">),</span> <span class="identifier">my_connect_condition</span><span class="special">());</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Connected to: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">e</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 </pre>

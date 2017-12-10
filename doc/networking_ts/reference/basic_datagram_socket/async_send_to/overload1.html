@@ -70,7 +70,7 @@
                   Regardless of whether the asynchronous operation completes immediately
                   or not, the handler will not be invoked from within this function.
                   Invocation of the handler will be performed in a manner equivalent
-                  to using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">post</span><span class="special">()</span></code>.
+                  to using <a class="link" href="../../post.html" title="post"><code class="computeroutput"><span class="identifier">post</span></code></a>.
                 </p>
 </dd>
 </dl>
@@ -80,16 +80,15 @@
             <span><a name="networking_ts.reference.basic_datagram_socket.async_send_to.overload1.example"></a></span><a class="link" href="overload1.html#networking_ts.reference.basic_datagram_socket.async_send_to.overload1.example">Example</a>
           </h6>
 <p>
-            To send a single data buffer use the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer</span></code>
-            function as follows:
+            To send a single data buffer use the <a class="link" href="../../buffer.html" title="buffer"><code class="computeroutput"><span class="identifier">buffer</span></code></a> function as follows:
           </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">udp</span><span class="special">::</span><span class="identifier">endpoint</span> <span class="identifier">destination</span><span class="special">(</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">address</span><span class="special">::</span><span class="identifier">from_string</span><span class="special">(</span><span class="string">"1.2.3.4"</span><span class="special">),</span> <span class="number">12345</span><span class="special">);</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">udp</span><span class="special">::</span><span class="identifier">endpoint</span> <span class="identifier">destination</span><span class="special">(</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">address</span><span class="special">::</span><span class="identifier">from_string</span><span class="special">(</span><span class="string">"1.2.3.4"</span><span class="special">),</span> <span class="number">12345</span><span class="special">);</span>
 <span class="identifier">socket</span><span class="special">.</span><span class="identifier">async_send_to</span><span class="special">(</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">),</span> <span class="identifier">destination</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">);</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">),</span> <span class="identifier">destination</span><span class="special">,</span> <span class="identifier">handler</span><span class="special">);</span>
 </pre>
 <p>
-            See the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer</span></code> documentation for information
+            See the <a class="link" href="../../buffer.html" title="buffer"><code class="computeroutput"><span class="identifier">buffer</span></code></a> documentation for information
             on sending multiple buffers in one go, and how to use it with arrays,
             boost::array or std::vector.
           </p>

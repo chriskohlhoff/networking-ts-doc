@@ -91,7 +91,7 @@
 </p>
 <pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handler</span><span class="special">(</span>
   <span class="comment">// Result of operation. if the sequence is empty, set to</span>
-  <span class="comment">// std::experimental::net::error::not_found. Otherwise, contains the</span>
+  <span class="comment">// std::experimental::net::v1::error::not_found. Otherwise, contains the</span>
   <span class="comment">// error from the last connection attempt.</span>
   <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">error</span><span class="special">,</span>
 
@@ -104,7 +104,7 @@
                 Regardless of whether the asynchronous operation completes immediately
                 or not, the handler will not be invoked from within this function.
                 Invocation of the handler will be performed in a manner equivalent
-                to using <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">post</span><span class="special">()</span></code>.
+                to using <a class="link" href="../post.html" title="post"><code class="computeroutput"><span class="identifier">post</span></code></a>.
               </p>
 </dd>
 </dl>
@@ -130,7 +130,8 @@
 <span class="special">};</span>
 </pre>
 <p>
-          It would be used with the std::experimental::net::connect function as follows:
+          It would be used with the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">connect</span></code>
+          function as follows:
         </p>
 <pre class="programlisting"><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span> <span class="identifier">r</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
 <span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span><span class="special">::</span><span class="identifier">query</span> <span class="identifier">q</span><span class="special">(</span><span class="string">"host"</span><span class="special">,</span> <span class="string">"service"</span><span class="special">);</span>
@@ -149,7 +150,7 @@
   <span class="keyword">if</span> <span class="special">(!</span><span class="identifier">ec</span><span class="special">)</span>
   <span class="special">{</span>
     <span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span><span class="special">::</span><span class="identifier">iterator</span> <span class="identifier">end</span><span class="special">;</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">async_connect</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span> <span class="identifier">i</span><span class="special">,</span> <span class="identifier">end</span><span class="special">,</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">async_connect</span><span class="special">(</span><span class="identifier">s</span><span class="special">,</span> <span class="identifier">i</span><span class="special">,</span> <span class="identifier">end</span><span class="special">,</span>
         <span class="identifier">my_connect_condition</span><span class="special">(),</span>
         <span class="identifier">connect_handler</span><span class="special">);</span>
   <span class="special">}</span>

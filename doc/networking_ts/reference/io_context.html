@@ -438,16 +438,16 @@
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-            std::experimental::net::ip::tcp::socket
+            <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span></code>
           </li>
 <li class="listitem">
-            std::experimental::net::ip::tcp::acceptor
+            <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">acceptor</span></code>
           </li>
 <li class="listitem">
-            std::experimental::net::ip::udp::socket
+            <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">udp</span><span class="special">::</span><span class="identifier">socket</span></code>
           </li>
 <li class="listitem">
-            std::experimental::net::deadline_timer.
+            std::experimental::net::v1::deadline_timer.
           </li>
 </ul></div>
 <p>
@@ -522,7 +522,7 @@
 <p>
         For example:
       </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
 <span class="special">...</span>
 <span class="keyword">for</span> <span class="special">(;;)</span>
 <span class="special">{</span>
@@ -539,6 +539,39 @@
 </pre>
 <h5>
 <a name="networking_ts.reference.io_context.h7"></a>
+        <span><a name="networking_ts.reference.io_context.submitting_arbitrary_tasks_to_the_io_context"></a></span><a class="link" href="io_context.html#networking_ts.reference.io_context.submitting_arbitrary_tasks_to_the_io_context">Submitting
+        arbitrary tasks to the io_context</a>
+      </h5>
+<p>
+        To submit functions to the <a class="link" href="io_context.html" title="io_context"><code class="computeroutput"><span class="identifier">io_context</span></code></a>, use the <a class="link" href="dispatch.html" title="dispatch"><code class="computeroutput"><span class="identifier">dispatch</span></code></a> , <a class="link" href="post.html" title="post"><code class="computeroutput"><span class="identifier">post</span></code></a> or <a class="link" href="defer.html" title="defer"><code class="computeroutput"><span class="identifier">defer</span></code></a> free functions.
+      </p>
+<p>
+        For example:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">my_task</span><span class="special">()</span>
+<span class="special">{</span>
+  <span class="special">...</span>
+<span class="special">}</span>
+
+<span class="special">...</span>
+
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
+
+<span class="comment">// Submit a function to the io_context.</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">post</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">,</span> <span class="identifier">my_task</span><span class="special">);</span>
+
+<span class="comment">// Submit a lambda object to the io_context.</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">post</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">,</span>
+    <span class="special">[]()</span>
+    <span class="special">{</span>
+      <span class="special">...</span>
+    <span class="special">});</span>
+
+<span class="comment">// Run the io_context until it runs out of work.</span>
+<span class="identifier">io_context</span><span class="special">.</span><span class="identifier">run</span><span class="special">();</span>
+</pre>
+<h5>
+<a name="networking_ts.reference.io_context.h8"></a>
         <span><a name="networking_ts.reference.io_context.stopping_the_io_context_from_running_out_of_work"></a></span><a class="link" href="io_context.html#networking_ts.reference.io_context.stopping_the_io_context_from_running_out_of_work">Stopping
         the io_context from running out of work</a>
       </h5>
@@ -547,11 +580,11 @@
         from returning when there is no more work to do. For example, the <a class="link" href="io_context.html" title="io_context"><code class="computeroutput"><span class="identifier">io_context</span></code></a> may be being run in a
         background thread that is launched prior to the application's asynchronous
         operations. The <code class="computeroutput"><span class="identifier">run</span><span class="special">()</span></code>
-        call may be kept running by creating an object of type std::experimental::net::executor_work_guard&lt;io_context::executor_type&gt;:
+        call may be kept running by creating an object of type std::experimental::net::v1::executor_work_guard&lt;io_context::executor_type&gt;:
       </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
-<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">executor_work_guard</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">executor_type</span><span class="special">&gt;</span>
-  <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">make_work_guard</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">executor_work_guard</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">executor_type</span><span class="special">&gt;</span>
+  <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">make_work_guard</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
 <span class="special">...</span>
 </pre>
 <p>
@@ -563,9 +596,9 @@
         Alternatively, if the application requires that all operations and handlers
         be allowed to finish normally, the work object may be explicitly reset.
       </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
-<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">executor_work_guard</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">executor_type</span><span class="special">&gt;</span>
-  <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">make_work_guard</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">io_context</span> <span class="identifier">io_context</span><span class="special">;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">executor_work_guard</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">io_context</span><span class="special">::</span><span class="identifier">executor_type</span><span class="special">&gt;</span>
+  <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">make_work_guard</span><span class="special">(</span><span class="identifier">io_context</span><span class="special">);</span>
 <span class="special">...</span>
 <span class="identifier">work</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span> <span class="comment">// Allow run() to exit. </span>
 </pre>

@@ -29,7 +29,8 @@
 <p>
             This function causes all outstanding asynchronous connect, send and receive
             operations to finish immediately, and the handlers for cancelled operations
-            will be passed the std::experimental::net::error::operation_aborted error.
+            will be passed the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_aborted</span></code>
+            error.
           </p>
 <h6>
 <a name="networking_ts.reference.basic_socket.cancel.overload2.h0"></a>
@@ -50,7 +51,7 @@
           </h6>
 <p>
             Calls to <code class="computeroutput"><span class="identifier">cancel</span><span class="special">()</span></code>
-            will always fail with std::experimental::net::error::operation_not_supported
+            will always fail with <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">experimental</span><span class="special">::</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">v1</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">operation_not_supported</span></code>
             when run on Windows XP, Windows Server 2003, and earlier versions of
             Windows, unless NET_TS_ENABLE_CANCELIO is defined. However, the CancelIo
             function has two issues that should be considered before enabling its
