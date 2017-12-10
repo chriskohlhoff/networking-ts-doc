@@ -99,7 +99,6 @@
           <simplelist type="vert" columns="1">
             <member><link linkend="networking_ts.reference.executor_arg_t">executor_arg_t</link></member>
             <member><link linkend="networking_ts.reference.uses_executor">uses_executor</link></member>
-            <member><link linkend="networking_ts.reference.uses_executor">uses_executor</link></member>
             <member><link linkend="networking_ts.reference.associated_executor">associated_executor</link></member>
             <member><link linkend="networking_ts.reference.get_associated_executor">get_associated_executor</link></member>
             <member><link linkend="networking_ts.reference.executor_binder">executor_binder</link></member>
