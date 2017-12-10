@@ -432,7 +432,7 @@ This function attempts to connect a socket to one of a sequence of endpoints. It
 ``
    void handler(
      // Result of operation. if the sequence is empty, set to
-     // std::experimental::net::v1::error::not_found. Otherwise, contains the
+     // std::experimental::net::error::not_found. Otherwise, contains the
      // error from the last connection attempt.
      const std::error_code& error,
 
@@ -466,7 +466,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
    {
      if (!ec)
      {
-       std::experimental::net::v1::async_connect(s, results, connect_handler);
+       std::experimental::net::async_connect(s, results, connect_handler);
      }
    }
 
@@ -524,7 +524,7 @@ This function attempts to connect a socket to one of a sequence of endpoints. It
 ``
    void handler(
      // Result of operation. if the sequence is empty, set to
-     // std::experimental::net::v1::error::not_found. Otherwise, contains the
+     // std::experimental::net::error::not_found. Otherwise, contains the
      // error from the last connection attempt.
      const std::error_code& error,
 
@@ -544,7 +544,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    std::vector<tcp::endpoint> endpoints = ...;
    tcp::socket s(io_context);
-   std::experimental::net::v1::async_connect(s,
+   std::experimental::net::async_connect(s,
        endpoints.begin(), endpoints.end(),
        connect_handler);
 
@@ -610,7 +610,7 @@ The `ec` parameter contains the result from the most recent connect operation. B
 ``
    void handler(
      // Result of operation. if the sequence is empty, set to
-     // std::experimental::net::v1::error::not_found. Otherwise, contains the
+     // std::experimental::net::error::not_found. Otherwise, contains the
      // error from the last connection attempt.
      const std::error_code& error,
 
@@ -659,7 +659,7 @@ It would be used with the `std::experimental::net::v1::connect` function as foll
    {
      if (!ec)
      {
-       std::experimental::net::v1::async_connect(s, results,
+       std::experimental::net::async_connect(s, results,
            my_connect_condition(),
            connect_handler);
      }
@@ -736,7 +736,7 @@ The `ec` parameter contains the result from the most recent connect operation. B
 ``
    void handler(
      // Result of operation. if the sequence is empty, set to
-     // std::experimental::net::v1::error::not_found. Otherwise, contains the
+     // std::experimental::net::error::not_found. Otherwise, contains the
      // error from the last connection attempt.
      const std::error_code& error,
 
@@ -786,7 +786,7 @@ It would be used with the `std::experimental::net::v1::connect` function as foll
      if (!ec)
      {
        tcp::resolver::iterator end;
-       std::experimental::net::v1::async_connect(s, i, end,
+       std::experimental::net::async_connect(s, i, end,
            my_connect_condition(),
            connect_handler);
      }
@@ -932,7 +932,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
   
 To read into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::async_read(s, std::experimental::net::v1::buffer(data, size), handler);
+   std::experimental::net::async_read(s, std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on reading into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector.
@@ -942,9 +942,9 @@ See the [link networking_ts.reference.buffer `buffer`]  documentation for inform
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::async_read(
+   std::experimental::net::async_read(
        s, buffers,
-       std::experimental::net::v1::transfer_all(),
+       std::experimental::net::transfer_all(),
        handler); 
 
 
@@ -1027,9 +1027,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
   
 To read into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::async_read(s,
-       std::experimental::net::v1::buffer(data, size),
-       std::experimental::net::v1::transfer_at_least(32),
+   std::experimental::net::async_read(s,
+       std::experimental::net::buffer(data, size),
+       std::experimental::net::transfer_at_least(32),
        handler); 
 
 
@@ -1100,9 +1100,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::async_read(
+   std::experimental::net::async_read(
        s, buffers,
-       std::experimental::net::v1::transfer_all(),
+       std::experimental::net::transfer_all(),
        handler); 
 
 
@@ -1296,7 +1296,7 @@ To asynchronously read data into a `std::string` until a newline is encountered:
      }
    }
    ...
-   std::experimental::net::v1::async_read_until(s, data, '\n', handler); 
+   std::experimental::net::async_read_until(s, data, '\n', handler); 
 
 
 After the `async_read_until` operation completes successfully, the buffer `data` contains the delimiter: 
@@ -1400,7 +1400,7 @@ To asynchronously read data into a `std::string` until a CR-LF sequence is encou
      }
    }
    ...
-   std::experimental::net::v1::async_read_until(s, data, "\r\n", handler); 
+   std::experimental::net::async_read_until(s, data, "\r\n", handler); 
 
 
 After the `async_read_until` operation completes successfully, the string `data` contains the delimiter: 
@@ -1778,7 +1778,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
   
 To write a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::async_write(s, std::experimental::net::v1::buffer(data, size), handler);
+   std::experimental::net::async_write(s, std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on writing multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -1861,9 +1861,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
   
 To write a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::async_write(s,
-       std::experimental::net::v1::buffer(data, size),
-       std::experimental::net::v1::transfer_at_least(32),
+   std::experimental::net::async_write(s,
+       std::experimental::net::buffer(data, size),
+       std::experimental::net::transfer_at_least(32),
        handler); 
 
 
@@ -2570,9 +2570,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    socket.async_connect(endpoint, connect_handler);
 
 
@@ -2653,7 +2653,7 @@ The async\_receive operation can only be used with a connected socket. Use the a
   
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_receive(std::experimental::net::v1::buffer(data, size), handler);
+   socket.async_receive(std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -2786,7 +2786,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
    socket.async_receive_from(
-       std::experimental::net::v1::buffer(data, size), sender_endpoint, handler); 
+       std::experimental::net::buffer(data, size), sender_endpoint, handler); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -2916,7 +2916,7 @@ The async\_send operation can only be used with a connected socket. Use the asyn
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_send(std::experimental::net::v1::buffer(data, size), handler);
+   socket.async_send(std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -3048,10 +3048,10 @@ Regardless of whether the asynchronous operation completes immediately or not, t
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::ip::udp::endpoint destination(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::udp::endpoint destination(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    socket.async_send_to(
-       std::experimental::net::v1::buffer(data, size), destination, handler);
+       std::experimental::net::buffer(data, size), destination, handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -3164,9 +3164,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.async_wait(std::experimental::net::v1::ip::tcp::socket::wait_read, wait_handler);
+   socket.async_wait(std::experimental::net::ip::tcp::socket::wait_read, wait_handler);
 
 
 
@@ -3697,10 +3697,10 @@ This function binds the socket to the specified endpoint on the local machine.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
-   socket.bind(std::experimental::net::v1::ip::tcp::endpoint(
-         std::experimental::net::v1::ip::tcp::v4(), 12345));
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
+   socket.bind(std::experimental::net::ip::tcp::endpoint(
+         std::experimental::net::ip::tcp::v4(), 12345));
 
 
 
@@ -3745,11 +3745,11 @@ This function binds the socket to the specified endpoint on the local machine.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
    std::error_code ec;
-   socket.bind(std::experimental::net::v1::ip::tcp::endpoint(
-         std::experimental::net::v1::ip::tcp::v4(), 12345), ec);
+   socket.bind(std::experimental::net::ip::tcp::endpoint(
+         std::experimental::net::ip::tcp::v4(), 12345), ec);
    if (ec)
    {
      // An error occurred.
@@ -3787,9 +3787,9 @@ Implements the SOL\_SOCKET/SO\_BROADCAST socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option(true);
+   std::experimental::net::socket_base::broadcast option(true);
    socket.set_option(option);
 
 
@@ -3798,9 +3798,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option;
+   std::experimental::net::socket_base::broadcast option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -3835,9 +3835,9 @@ Implements the FIONREAD IO control command.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::bytes_readable command(true);
+   std::experimental::net::socket_base::bytes_readable command(true);
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -4047,7 +4047,7 @@ This function is used to close the socket. Any asynchronous send, receive or con
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
    socket.close(ec);
@@ -4130,9 +4130,9 @@ The socket is automatically opened if it is not already open. If the connect fai
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    socket.connect(endpoint);
 
 
@@ -4180,9 +4180,9 @@ The socket is automatically opened if it is not already open. If the connect fai
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    std::error_code ec;
    socket.connect(endpoint, ec);
    if (ec)
@@ -4222,9 +4222,9 @@ Implements the SOL\_SOCKET/SO\_DEBUG socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option(true);
+   std::experimental::net::socket_base::debug option(true);
    socket.set_option(option);
 
 
@@ -4233,9 +4233,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option;
+   std::experimental::net::socket_base::debug option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -4270,9 +4270,9 @@ Implements the SOL\_SOCKET/SO\_DONTROUTE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option(true);
+   std::experimental::net::socket_base::do_not_route option(true);
    socket.set_option(option);
 
 
@@ -4281,9 +4281,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option;
+   std::experimental::net::socket_base::do_not_route option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -4318,9 +4318,9 @@ Implements a custom socket option that determines whether or not an accept opera
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option(true);
+   std::experimental::net::socket_base::enable_connection_aborted option(true);
    acceptor.set_option(option);
 
 
@@ -4329,9 +4329,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option;
+   std::experimental::net::socket_base::enable_connection_aborted option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -4515,9 +4515,9 @@ This function is used to get the current value of an option on the socket.
   
 Getting the value of the SOL\_SOCKET/SO\_KEEPALIVE option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::keep_alive option;
+   std::experimental::net::ip::tcp::socket::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -4567,9 +4567,9 @@ This function is used to get the current value of an option on the socket.
   
 Getting the value of the SOL\_SOCKET/SO\_KEEPALIVE option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::keep_alive option;
+   std::experimental::net::ip::tcp::socket::keep_alive option;
    std::error_code ec;
    socket.get_option(option, ec);
    if (ec)
@@ -4652,9 +4652,9 @@ This function is used to execute an IO control command on the socket.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::bytes_readable command;
+   std::experimental::net::ip::tcp::socket::bytes_readable command;
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -4704,9 +4704,9 @@ This function is used to execute an IO control command on the socket.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::bytes_readable command;
+   std::experimental::net::ip::tcp::socket::bytes_readable command;
    std::error_code ec;
    socket.io_control(command, ec);
    if (ec)
@@ -4764,9 +4764,9 @@ Implements the SOL\_SOCKET/SO\_KEEPALIVE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option(true);
+   std::experimental::net::socket_base::keep_alive option(true);
    socket.set_option(option);
 
 
@@ -4775,9 +4775,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option;
+   std::experimental::net::socket_base::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -4812,9 +4812,9 @@ Implements the SOL\_SOCKET/SO\_LINGER socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option(true, 30);
+   std::experimental::net::socket_base::linger option(true, 30);
    socket.set_option(option);
 
 
@@ -4823,9 +4823,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option;
+   std::experimental::net::socket_base::linger option;
    socket.get_option(option);
    bool is_set = option.enabled();
    unsigned short timeout = option.timeout();
@@ -4888,9 +4888,9 @@ An object that represents the local endpoint of the socket.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.local_endpoint();
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.local_endpoint();
 
 
 
@@ -4937,10 +4937,10 @@ An object that represents the local endpoint of the socket. Returns a default-co
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
    if (ec)
    {
      // An error occurred.
@@ -5172,16 +5172,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -5287,16 +5287,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -5395,16 +5395,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -5637,8 +5637,8 @@ This function opens the socket so that it will use the specified protocol.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
 
 
 
@@ -5683,9 +5683,9 @@ This function opens the socket so that it will use the specified protocol.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    std::error_code ec;
-   socket.open(std::experimental::net::v1::ip::tcp::v4(), ec);
+   socket.open(std::experimental::net::ip::tcp::v4(), ec);
    if (ec)
    {
      // An error occurred.
@@ -5815,9 +5815,9 @@ Implements the SOL\_SOCKET/SO\_OOBINLINE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option(true);
+   std::experimental::net::socket_base::out_of_band_inline option(true);
    socket.set_option(option);
 
 
@@ -5826,9 +5826,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option;
+   std::experimental::net::socket_base::out_of_band_inline option;
    socket.get_option(option);
    bool value = option.value();
 
@@ -5934,7 +5934,7 @@ The receive operation can only be used with a connected socket. Use the receive\
   
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.receive(std::experimental::net::v1::buffer(data, size)); 
+   socket.receive(std::experimental::net::buffer(data, size)); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -6069,9 +6069,9 @@ Implements the SOL\_SOCKET/SO\_RCVBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option(8192);
+   std::experimental::net::socket_base::receive_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -6080,9 +6080,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option;
+   std::experimental::net::socket_base::receive_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -6174,9 +6174,9 @@ The number of bytes received.
   
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::ip::udp::endpoint sender_endpoint;
+   std::experimental::net::ip::udp::endpoint sender_endpoint;
    socket.receive_from(
-       std::experimental::net::v1::buffer(data, size), sender_endpoint);
+       std::experimental::net::buffer(data, size), sender_endpoint);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -6307,9 +6307,9 @@ Implements the SOL\_SOCKET/SO\_RCVLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option(1024);
+   std::experimental::net::socket_base::receive_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -6318,9 +6318,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option;
+   std::experimental::net::socket_base::receive_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -6470,9 +6470,9 @@ An object that represents the remote endpoint of the socket.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.remote_endpoint();
 
 
 
@@ -6519,10 +6519,10 @@ An object that represents the remote endpoint of the socket. Returns a default-c
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
    if (ec)
    {
      // An error occurred.
@@ -6560,9 +6560,9 @@ Implements the SOL\_SOCKET/SO\_REUSEADDR socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option(true);
+   std::experimental::net::socket_base::reuse_address option(true);
    acceptor.set_option(option);
 
 
@@ -6571,9 +6571,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option;
+   std::experimental::net::socket_base::reuse_address option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -6664,7 +6664,7 @@ The send operation can only be used with a connected socket. Use the send\_to fu
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.send(std::experimental::net::v1::buffer(data, size)); 
+   socket.send(std::experimental::net::buffer(data, size)); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -6799,9 +6799,9 @@ Implements the SOL\_SOCKET/SO\_SNDBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option(8192);
+   std::experimental::net::socket_base::send_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -6810,9 +6810,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option;
+   std::experimental::net::socket_base::send_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -6847,9 +6847,9 @@ Implements the SOL\_SOCKET/SO\_SNDLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option(1024);
+   std::experimental::net::socket_base::send_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -6858,9 +6858,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option;
+   std::experimental::net::socket_base::send_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -6952,9 +6952,9 @@ The number of bytes sent.
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::ip::udp::endpoint destination(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
-   socket.send_to(std::experimental::net::v1::buffer(data, size), destination);
+   std::experimental::net::ip::udp::endpoint destination(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
+   socket.send_to(std::experimental::net::buffer(data, size), destination);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -7127,9 +7127,9 @@ This function is used to set an option on the socket.
   
 Setting the IPPROTO\_TCP/TCP\_NODELAY option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option(true);
+   std::experimental::net::ip::tcp::no_delay option(true);
    socket.set_option(option);
 
 
@@ -7178,9 +7178,9 @@ This function is used to set an option on the socket.
   
 Setting the IPPROTO\_TCP/TCP\_NODELAY option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option(true);
+   std::experimental::net::ip::tcp::no_delay option(true);
    std::error_code ec;
    socket.set_option(option, ec);
    if (ec)
@@ -7255,9 +7255,9 @@ This function is used to disable send operations, receive operations, or both.
   
 Shutting down the send side of the socket: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.shutdown(std::experimental::net::v1::ip::tcp::socket::shutdown_send);
+   socket.shutdown(std::experimental::net::ip::tcp::socket::shutdown_send);
 
 
 
@@ -7302,10 +7302,10 @@ This function is used to disable send operations, receive operations, or both.
   
 Shutting down the send side of the socket: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   socket.shutdown(std::experimental::net::v1::ip::tcp::socket::shutdown_send, ec);
+   socket.shutdown(std::experimental::net::ip::tcp::socket::shutdown_send, ec);
    if (ec)
    {
      // An error occurred.
@@ -7406,9 +7406,9 @@ This function is used to perform a blocking wait for a socket to enter a ready t
   
 Waiting for a socket to become readable. 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.wait(std::experimental::net::v1::ip::tcp::socket::wait_read);
+   socket.wait(std::experimental::net::ip::tcp::socket::wait_read);
 
 
 
@@ -7453,10 +7453,10 @@ This function is used to perform a blocking wait for a socket to enter a ready t
   
 Waiting for a socket to become readable. 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   socket.wait(std::experimental::net::v1::ip::tcp::socket::wait_read, ec);
+   socket.wait(std::experimental::net::ip::tcp::socket::wait_read, ec);
 
 
 
@@ -8435,9 +8435,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    socket.async_connect(endpoint, connect_handler);
 
 
@@ -8498,9 +8498,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.async_wait(std::experimental::net::v1::ip::tcp::socket::wait_read, wait_handler);
+   socket.async_wait(std::experimental::net::ip::tcp::socket::wait_read, wait_handler);
 
 
 
@@ -9016,10 +9016,10 @@ This function binds the socket to the specified endpoint on the local machine.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
-   socket.bind(std::experimental::net::v1::ip::tcp::endpoint(
-         std::experimental::net::v1::ip::tcp::v4(), 12345));
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
+   socket.bind(std::experimental::net::ip::tcp::endpoint(
+         std::experimental::net::ip::tcp::v4(), 12345));
 
 
 
@@ -9061,11 +9061,11 @@ This function binds the socket to the specified endpoint on the local machine.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
    std::error_code ec;
-   socket.bind(std::experimental::net::v1::ip::tcp::endpoint(
-         std::experimental::net::v1::ip::tcp::v4(), 12345), ec);
+   socket.bind(std::experimental::net::ip::tcp::endpoint(
+         std::experimental::net::ip::tcp::v4(), 12345), ec);
    if (ec)
    {
      // An error occurred.
@@ -9103,9 +9103,9 @@ Implements the SOL\_SOCKET/SO\_BROADCAST socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option(true);
+   std::experimental::net::socket_base::broadcast option(true);
    socket.set_option(option);
 
 
@@ -9114,9 +9114,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option;
+   std::experimental::net::socket_base::broadcast option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -9151,9 +9151,9 @@ Implements the FIONREAD IO control command.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::bytes_readable command(true);
+   std::experimental::net::socket_base::bytes_readable command(true);
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -9351,7 +9351,7 @@ This function is used to close the socket. Any asynchronous send, receive or con
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
    socket.close(ec);
@@ -9431,9 +9431,9 @@ The socket is automatically opened if it is not already open. If the connect fai
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    socket.connect(endpoint);
 
 
@@ -9478,9 +9478,9 @@ The socket is automatically opened if it is not already open. If the connect fai
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    std::error_code ec;
    socket.connect(endpoint, ec);
    if (ec)
@@ -9520,9 +9520,9 @@ Implements the SOL\_SOCKET/SO\_DEBUG socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option(true);
+   std::experimental::net::socket_base::debug option(true);
    socket.set_option(option);
 
 
@@ -9531,9 +9531,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option;
+   std::experimental::net::socket_base::debug option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -9568,9 +9568,9 @@ Implements the SOL\_SOCKET/SO\_DONTROUTE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option(true);
+   std::experimental::net::socket_base::do_not_route option(true);
    socket.set_option(option);
 
 
@@ -9579,9 +9579,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option;
+   std::experimental::net::socket_base::do_not_route option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -9616,9 +9616,9 @@ Implements a custom socket option that determines whether or not an accept opera
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option(true);
+   std::experimental::net::socket_base::enable_connection_aborted option(true);
    acceptor.set_option(option);
 
 
@@ -9627,9 +9627,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option;
+   std::experimental::net::socket_base::enable_connection_aborted option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -9804,9 +9804,9 @@ This function is used to get the current value of an option on the socket.
   
 Getting the value of the SOL\_SOCKET/SO\_KEEPALIVE option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::keep_alive option;
+   std::experimental::net::ip::tcp::socket::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -9853,9 +9853,9 @@ This function is used to get the current value of an option on the socket.
   
 Getting the value of the SOL\_SOCKET/SO\_KEEPALIVE option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::keep_alive option;
+   std::experimental::net::ip::tcp::socket::keep_alive option;
    std::error_code ec;
    socket.get_option(option, ec);
    if (ec)
@@ -9935,9 +9935,9 @@ This function is used to execute an IO control command on the socket.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::bytes_readable command;
+   std::experimental::net::ip::tcp::socket::bytes_readable command;
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -9984,9 +9984,9 @@ This function is used to execute an IO control command on the socket.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::bytes_readable command;
+   std::experimental::net::ip::tcp::socket::bytes_readable command;
    std::error_code ec;
    socket.io_control(command, ec);
    if (ec)
@@ -10041,9 +10041,9 @@ Implements the SOL\_SOCKET/SO\_KEEPALIVE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option(true);
+   std::experimental::net::socket_base::keep_alive option(true);
    socket.set_option(option);
 
 
@@ -10052,9 +10052,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option;
+   std::experimental::net::socket_base::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -10089,9 +10089,9 @@ Implements the SOL\_SOCKET/SO\_LINGER socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option(true, 30);
+   std::experimental::net::socket_base::linger option(true, 30);
    socket.set_option(option);
 
 
@@ -10100,9 +10100,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option;
+   std::experimental::net::socket_base::linger option;
    socket.get_option(option);
    bool is_set = option.enabled();
    unsigned short timeout = option.timeout();
@@ -10162,9 +10162,9 @@ An object that represents the local endpoint of the socket.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.local_endpoint();
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.local_endpoint();
 
 
 
@@ -10208,10 +10208,10 @@ An object that represents the local endpoint of the socket. Returns a default-co
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
    if (ec)
    {
      // An error occurred.
@@ -10437,16 +10437,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -10549,16 +10549,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -10654,16 +10654,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -10884,8 +10884,8 @@ This function opens the socket so that it will use the specified protocol.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
 
 
 
@@ -10927,9 +10927,9 @@ This function opens the socket so that it will use the specified protocol.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    std::error_code ec;
-   socket.open(std::experimental::net::v1::ip::tcp::v4(), ec);
+   socket.open(std::experimental::net::ip::tcp::v4(), ec);
    if (ec)
    {
      // An error occurred.
@@ -11059,9 +11059,9 @@ Implements the SOL\_SOCKET/SO\_OOBINLINE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option(true);
+   std::experimental::net::socket_base::out_of_band_inline option(true);
    socket.set_option(option);
 
 
@@ -11070,9 +11070,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option;
+   std::experimental::net::socket_base::out_of_band_inline option;
    socket.get_option(option);
    bool value = option.value();
 
@@ -11122,9 +11122,9 @@ Implements the SOL\_SOCKET/SO\_RCVBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option(8192);
+   std::experimental::net::socket_base::receive_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -11133,9 +11133,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option;
+   std::experimental::net::socket_base::receive_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -11170,9 +11170,9 @@ Implements the SOL\_SOCKET/SO\_RCVLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option(1024);
+   std::experimental::net::socket_base::receive_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -11181,9 +11181,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option;
+   std::experimental::net::socket_base::receive_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -11324,9 +11324,9 @@ An object that represents the remote endpoint of the socket.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.remote_endpoint();
 
 
 
@@ -11370,10 +11370,10 @@ An object that represents the remote endpoint of the socket. Returns a default-c
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
    if (ec)
    {
      // An error occurred.
@@ -11411,9 +11411,9 @@ Implements the SOL\_SOCKET/SO\_REUSEADDR socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option(true);
+   std::experimental::net::socket_base::reuse_address option(true);
    acceptor.set_option(option);
 
 
@@ -11422,9 +11422,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option;
+   std::experimental::net::socket_base::reuse_address option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -11459,9 +11459,9 @@ Implements the SOL\_SOCKET/SO\_SNDBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option(8192);
+   std::experimental::net::socket_base::send_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -11470,9 +11470,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option;
+   std::experimental::net::socket_base::send_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -11507,9 +11507,9 @@ Implements the SOL\_SOCKET/SO\_SNDLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option(1024);
+   std::experimental::net::socket_base::send_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -11518,9 +11518,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option;
+   std::experimental::net::socket_base::send_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -11594,9 +11594,9 @@ This function is used to set an option on the socket.
   
 Setting the IPPROTO\_TCP/TCP\_NODELAY option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option(true);
+   std::experimental::net::ip::tcp::no_delay option(true);
    socket.set_option(option);
 
 
@@ -11642,9 +11642,9 @@ This function is used to set an option on the socket.
   
 Setting the IPPROTO\_TCP/TCP\_NODELAY option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option(true);
+   std::experimental::net::ip::tcp::no_delay option(true);
    std::error_code ec;
    socket.set_option(option, ec);
    if (ec)
@@ -11716,9 +11716,9 @@ This function is used to disable send operations, receive operations, or both.
   
 Shutting down the send side of the socket: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.shutdown(std::experimental::net::v1::ip::tcp::socket::shutdown_send);
+   socket.shutdown(std::experimental::net::ip::tcp::socket::shutdown_send);
 
 
 
@@ -11760,10 +11760,10 @@ This function is used to disable send operations, receive operations, or both.
   
 Shutting down the send side of the socket: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   socket.shutdown(std::experimental::net::v1::ip::tcp::socket::shutdown_send, ec);
+   socket.shutdown(std::experimental::net::ip::tcp::socket::shutdown_send, ec);
    if (ec)
    {
      // An error occurred.
@@ -11861,9 +11861,9 @@ This function is used to perform a blocking wait for a socket to enter a ready t
   
 Waiting for a socket to become readable. 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.wait(std::experimental::net::v1::ip::tcp::socket::wait_read);
+   socket.wait(std::experimental::net::ip::tcp::socket::wait_read);
 
 
 
@@ -11905,10 +11905,10 @@ This function is used to perform a blocking wait for a socket to enter a ready t
   
 Waiting for a socket to become readable. 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   socket.wait(std::experimental::net::v1::ip::tcp::socket::wait_read, ec);
+   socket.wait(std::experimental::net::ip::tcp::socket::wait_read, ec);
 
 
 
@@ -12320,10 +12320,10 @@ The [link networking_ts.reference.basic_socket_acceptor `basic_socket_acceptor`]
   
 Opening a socket acceptor with the SO\_REUSEADDR option enabled: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(std::experimental::net::v1::ip::tcp::v4(), port);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(std::experimental::net::ip::tcp::v4(), port);
    acceptor.open(endpoint.protocol());
-   acceptor.set_option(std::experimental::net::v1::ip::tcp::acceptor::reuse_address(true));
+   acceptor.set_option(std::experimental::net::ip::tcp::acceptor::reuse_address(true));
    acceptor.bind(endpoint);
    acceptor.listen();
 
@@ -12408,9 +12408,9 @@ A socket object representing the newly accepted connection.
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket socket(acceptor.accept());
+   std::experimental::net::ip::tcp::socket socket(acceptor.accept());
 
 
 
@@ -12456,9 +12456,9 @@ On success, a socket object representing the newly accepted connection. On error
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket socket(acceptor.accept(ec));
+   std::experimental::net::ip::tcp::socket socket(acceptor.accept(ec));
    if (ec)
    {
      // An error occurred.
@@ -12518,9 +12518,9 @@ A socket object representing the newly accepted connection.
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket socket(acceptor.accept());
+   std::experimental::net::ip::tcp::socket socket(acceptor.accept());
 
 
 
@@ -12569,9 +12569,9 @@ On success, a socket object representing the newly accepted connection. On error
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket socket(acceptor.accept(io_context2, ec));
+   std::experimental::net::ip::tcp::socket socket(acceptor.accept(io_context2, ec));
    if (ec)
    {
      // An error occurred.
@@ -12631,10 +12631,10 @@ A socket object representing the newly accepted connection.
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint;
-   std::experimental::net::v1::ip::tcp::socket socket(acceptor.accept(endpoint));
+   std::experimental::net::ip::tcp::endpoint endpoint;
+   std::experimental::net::ip::tcp::socket socket(acceptor.accept(endpoint));
 
 
 
@@ -12683,10 +12683,10 @@ On success, a socket object representing the newly accepted connection. On error
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint;
-   std::experimental::net::v1::ip::tcp::socket socket(acceptor.accept(endpoint, ec));
+   std::experimental::net::ip::tcp::endpoint endpoint;
+   std::experimental::net::ip::tcp::socket socket(acceptor.accept(endpoint, ec));
    if (ec)
    {
      // An error occurred.
@@ -12749,10 +12749,10 @@ A socket object representing the newly accepted connection.
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint;
-   std::experimental::net::v1::ip::tcp::socket socket(
+   std::experimental::net::ip::tcp::endpoint endpoint;
+   std::experimental::net::ip::tcp::socket socket(
        acceptor.accept(io_context2, endpoint));
 
 
@@ -12805,10 +12805,10 @@ On success, a socket object representing the newly accepted connection. On error
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint;
-   std::experimental::net::v1::ip::tcp::socket socket(
+   std::experimental::net::ip::tcp::endpoint endpoint;
+   std::experimental::net::ip::tcp::socket socket(
        acceptor.accept(io_context2, endpoint, ec));
    if (ec)
    {
@@ -12952,7 +12952,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
 
    void accept_handler(const std::error_code& error,
-       std::experimental::net::v1::ip::tcp::socket peer)
+       std::experimental::net::ip::tcp::socket peer)
    {
      if (!error)
      {
@@ -12962,7 +12962,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
    acceptor.async_accept(accept_handler);
 
@@ -13018,7 +13018,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
 
    void accept_handler(const std::error_code& error,
-       std::experimental::net::v1::ip::tcp::socket peer)
+       std::experimental::net::ip::tcp::socket peer)
    {
      if (!error)
      {
@@ -13028,7 +13028,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
    acceptor.async_accept(io_context2, accept_handler);
 
@@ -13084,7 +13084,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
 
    void accept_handler(const std::error_code& error,
-       std::experimental::net::v1::ip::tcp::socket peer)
+       std::experimental::net::ip::tcp::socket peer)
    {
      if (!error)
      {
@@ -13094,9 +13094,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint;
+   std::experimental::net::ip::tcp::endpoint endpoint;
    acceptor.async_accept(endpoint, accept_handler);
 
 
@@ -13154,7 +13154,7 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
 
    void accept_handler(const std::error_code& error,
-       std::experimental::net::v1::ip::tcp::socket peer)
+       std::experimental::net::ip::tcp::socket peer)
    {
      if (!error)
      {
@@ -13164,9 +13164,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint;
+   std::experimental::net::ip::tcp::endpoint endpoint;
    acceptor.async_accept(io_context2, endpoint, accept_handler);
 
 
@@ -13229,10 +13229,10 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
    acceptor.async_wait(
-       std::experimental::net::v1::ip::tcp::acceptor::wait_read,
+       std::experimental::net::ip::tcp::acceptor::wait_read,
        wait_handler);
 
 
@@ -13604,8 +13604,8 @@ This function binds the socket acceptor to the specified endpoint on the local m
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(std::experimental::net::v1::ip::tcp::v4(), 12345);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(std::experimental::net::ip::tcp::v4(), 12345);
    acceptor.open(endpoint.protocol());
    acceptor.bind(endpoint);
 
@@ -13649,8 +13649,8 @@ This function binds the socket acceptor to the specified endpoint on the local m
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(std::experimental::net::v1::ip::tcp::v4(), 12345);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(std::experimental::net::ip::tcp::v4(), 12345);
    acceptor.open(endpoint.protocol());
    std::error_code ec;
    acceptor.bind(endpoint, ec);
@@ -13691,9 +13691,9 @@ Implements the SOL\_SOCKET/SO\_BROADCAST socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option(true);
+   std::experimental::net::socket_base::broadcast option(true);
    socket.set_option(option);
 
 
@@ -13702,9 +13702,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option;
+   std::experimental::net::socket_base::broadcast option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -13739,9 +13739,9 @@ Implements the FIONREAD IO control command.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::bytes_readable command(true);
+   std::experimental::net::socket_base::bytes_readable command(true);
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -13900,7 +13900,7 @@ A subsequent call to `open()` is required before the acceptor can again be used 
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
    std::error_code ec;
    acceptor.close(ec);
@@ -13941,9 +13941,9 @@ Implements the SOL\_SOCKET/SO\_DEBUG socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option(true);
+   std::experimental::net::socket_base::debug option(true);
    socket.set_option(option);
 
 
@@ -13952,9 +13952,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option;
+   std::experimental::net::socket_base::debug option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -13989,9 +13989,9 @@ Implements the SOL\_SOCKET/SO\_DONTROUTE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option(true);
+   std::experimental::net::socket_base::do_not_route option(true);
    socket.set_option(option);
 
 
@@ -14000,9 +14000,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option;
+   std::experimental::net::socket_base::do_not_route option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -14037,9 +14037,9 @@ Implements a custom socket option that determines whether or not an accept opera
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option(true);
+   std::experimental::net::socket_base::enable_connection_aborted option(true);
    acceptor.set_option(option);
 
 
@@ -14048,9 +14048,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option;
+   std::experimental::net::socket_base::enable_connection_aborted option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -14225,9 +14225,9 @@ This function is used to get the current value of an option on the acceptor.
   
 Getting the value of the SOL\_SOCKET/SO\_REUSEADDR option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::acceptor::reuse_address option;
+   std::experimental::net::ip::tcp::acceptor::reuse_address option;
    acceptor.get_option(option);
    bool is_set = option.get();
 
@@ -14274,9 +14274,9 @@ This function is used to get the current value of an option on the acceptor.
   
 Getting the value of the SOL\_SOCKET/SO\_REUSEADDR option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::acceptor::reuse_address option;
+   std::experimental::net::ip::tcp::acceptor::reuse_address option;
    std::error_code ec;
    acceptor.get_option(option, ec);
    if (ec)
@@ -14356,9 +14356,9 @@ This function is used to execute an IO control command on the acceptor.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::acceptor::non_blocking_io command(true);
+   std::experimental::net::ip::tcp::acceptor::non_blocking_io command(true);
    socket.io_control(command);
 
 
@@ -14404,9 +14404,9 @@ This function is used to execute an IO control command on the acceptor.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::acceptor::non_blocking_io command(true);
+   std::experimental::net::ip::tcp::acceptor::non_blocking_io command(true);
    std::error_code ec;
    socket.io_control(command, ec);
    if (ec)
@@ -14460,9 +14460,9 @@ Implements the SOL\_SOCKET/SO\_KEEPALIVE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option(true);
+   std::experimental::net::socket_base::keep_alive option(true);
    socket.set_option(option);
 
 
@@ -14471,9 +14471,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option;
+   std::experimental::net::socket_base::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -14508,9 +14508,9 @@ Implements the SOL\_SOCKET/SO\_LINGER socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option(true, 30);
+   std::experimental::net::socket_base::linger option(true, 30);
    socket.set_option(option);
 
 
@@ -14519,9 +14519,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option;
+   std::experimental::net::socket_base::linger option;
    socket.get_option(option);
    bool is_set = option.enabled();
    unsigned short timeout = option.timeout();
@@ -14621,10 +14621,10 @@ This function puts the socket acceptor into the state where it may accept new co
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
    std::error_code ec;
-   acceptor.listen(std::experimental::net::v1::socket_base::max_listen_connections, ec);
+   acceptor.listen(std::experimental::net::socket_base::max_listen_connections, ec);
    if (ec)
    {
      // An error occurred.
@@ -14686,9 +14686,9 @@ An object that represents the local endpoint of the acceptor.
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = acceptor.local_endpoint();
+   std::experimental::net::ip::tcp::endpoint endpoint = acceptor.local_endpoint();
 
 
 
@@ -14732,10 +14732,10 @@ An object that represents the local endpoint of the acceptor. Returns a default-
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
    std::error_code ec;
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = acceptor.local_endpoint(ec);
+   std::experimental::net::ip::tcp::endpoint endpoint = acceptor.local_endpoint(ec);
    if (ec)
    {
      // An error occurred.
@@ -15189,8 +15189,8 @@ This function opens the socket acceptor so that it will use the specified protoc
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
-   acceptor.open(std::experimental::net::v1::ip::tcp::v4());
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
+   acceptor.open(std::experimental::net::ip::tcp::v4());
 
 
 
@@ -15232,9 +15232,9 @@ This function opens the socket acceptor so that it will use the specified protoc
   
 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    std::error_code ec;
-   acceptor.open(std::experimental::net::v1::ip::tcp::v4(), ec);
+   acceptor.open(std::experimental::net::ip::tcp::v4(), ec);
    if (ec)
    {
      // An error occurred.
@@ -15364,9 +15364,9 @@ Implements the SOL\_SOCKET/SO\_OOBINLINE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option(true);
+   std::experimental::net::socket_base::out_of_band_inline option(true);
    socket.set_option(option);
 
 
@@ -15375,9 +15375,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option;
+   std::experimental::net::socket_base::out_of_band_inline option;
    socket.get_option(option);
    bool value = option.value();
 
@@ -15427,9 +15427,9 @@ Implements the SOL\_SOCKET/SO\_RCVBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option(8192);
+   std::experimental::net::socket_base::receive_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -15438,9 +15438,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option;
+   std::experimental::net::socket_base::receive_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -15475,9 +15475,9 @@ Implements the SOL\_SOCKET/SO\_RCVLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option(1024);
+   std::experimental::net::socket_base::receive_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -15486,9 +15486,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option;
+   std::experimental::net::socket_base::receive_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -15605,9 +15605,9 @@ Implements the SOL\_SOCKET/SO\_REUSEADDR socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option(true);
+   std::experimental::net::socket_base::reuse_address option(true);
    acceptor.set_option(option);
 
 
@@ -15616,9 +15616,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option;
+   std::experimental::net::socket_base::reuse_address option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -15653,9 +15653,9 @@ Implements the SOL\_SOCKET/SO\_SNDBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option(8192);
+   std::experimental::net::socket_base::send_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -15664,9 +15664,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option;
+   std::experimental::net::socket_base::send_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -15701,9 +15701,9 @@ Implements the SOL\_SOCKET/SO\_SNDLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option(1024);
+   std::experimental::net::socket_base::send_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -15712,9 +15712,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option;
+   std::experimental::net::socket_base::send_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -15788,9 +15788,9 @@ This function is used to set an option on the acceptor.
   
 Setting the SOL\_SOCKET/SO\_REUSEADDR option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::acceptor::reuse_address option(true);
+   std::experimental::net::ip::tcp::acceptor::reuse_address option(true);
    acceptor.set_option(option);
 
 
@@ -15836,9 +15836,9 @@ This function is used to set an option on the acceptor.
   
 Setting the SOL\_SOCKET/SO\_REUSEADDR option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::acceptor::reuse_address option(true);
+   std::experimental::net::ip::tcp::acceptor::reuse_address option(true);
    std::error_code ec;
    acceptor.set_option(option, ec);
    if (ec)
@@ -15938,9 +15938,9 @@ This function is used to perform a blocking wait for an acceptor to enter a read
   
 Waiting for an acceptor to become readable. 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
-   acceptor.wait(std::experimental::net::v1::ip::tcp::acceptor::wait_read);
+   acceptor.wait(std::experimental::net::ip::tcp::acceptor::wait_read);
 
 
 
@@ -15982,10 +15982,10 @@ This function is used to perform a blocking wait for an acceptor to enter a read
   
 Waiting for an acceptor to become readable. 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
    ...
    std::error_code ec;
-   acceptor.wait(std::experimental::net::v1::ip::tcp::acceptor::wait_read, ec);
+   acceptor.wait(std::experimental::net::ip::tcp::acceptor::wait_read, ec);
 
 
 
@@ -17729,9 +17729,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    socket.async_connect(endpoint, connect_handler);
 
 
@@ -17789,7 +17789,7 @@ The read operation may not read all of the requested number of bytes. Consider u
   
 To read into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_read_some(std::experimental::net::v1::buffer(data, size), handler);
+   socket.async_read_some(std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on reading into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -17869,7 +17869,7 @@ The receive operation may not receive all of the requested number of bytes. Cons
   
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_receive(std::experimental::net::v1::buffer(data, size), handler);
+   socket.async_receive(std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -17929,7 +17929,7 @@ The receive operation may not receive all of the requested number of bytes. Cons
   
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_receive(std::experimental::net::v1::buffer(data, size), 0, handler);
+   socket.async_receive(std::experimental::net::buffer(data, size), 0, handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -18011,7 +18011,7 @@ The send operation may not transmit all of the data to the peer. Consider using 
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_send(std::experimental::net::v1::buffer(data, size), handler);
+   socket.async_send(std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -18071,7 +18071,7 @@ The send operation may not transmit all of the data to the peer. Consider using 
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_send(std::experimental::net::v1::buffer(data, size), 0, handler);
+   socket.async_send(std::experimental::net::buffer(data, size), 0, handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -18136,9 +18136,9 @@ Regardless of whether the asynchronous operation completes immediately or not, t
 
    ...
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.async_wait(std::experimental::net::v1::ip::tcp::socket::wait_read, wait_handler);
+   socket.async_wait(std::experimental::net::ip::tcp::socket::wait_read, wait_handler);
 
 
 
@@ -18195,7 +18195,7 @@ The write operation may not transmit all of the data to the peer. Consider using
   
 To write a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.async_write_some(std::experimental::net::v1::buffer(data, size), handler);
+   socket.async_write_some(std::experimental::net::buffer(data, size), handler);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on writing multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -18726,10 +18726,10 @@ This function binds the socket to the specified endpoint on the local machine.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
-   socket.bind(std::experimental::net::v1::ip::tcp::endpoint(
-         std::experimental::net::v1::ip::tcp::v4(), 12345));
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
+   socket.bind(std::experimental::net::ip::tcp::endpoint(
+         std::experimental::net::ip::tcp::v4(), 12345));
 
 
 
@@ -18774,11 +18774,11 @@ This function binds the socket to the specified endpoint on the local machine.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
    std::error_code ec;
-   socket.bind(std::experimental::net::v1::ip::tcp::endpoint(
-         std::experimental::net::v1::ip::tcp::v4(), 12345), ec);
+   socket.bind(std::experimental::net::ip::tcp::endpoint(
+         std::experimental::net::ip::tcp::v4(), 12345), ec);
    if (ec)
    {
      // An error occurred.
@@ -18816,9 +18816,9 @@ Implements the SOL\_SOCKET/SO\_BROADCAST socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option(true);
+   std::experimental::net::socket_base::broadcast option(true);
    socket.set_option(option);
 
 
@@ -18827,9 +18827,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option;
+   std::experimental::net::socket_base::broadcast option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -18864,9 +18864,9 @@ Implements the FIONREAD IO control command.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::bytes_readable command(true);
+   std::experimental::net::socket_base::bytes_readable command(true);
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -19076,7 +19076,7 @@ This function is used to close the socket. Any asynchronous send, receive or con
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
    socket.close(ec);
@@ -19159,9 +19159,9 @@ The socket is automatically opened if it is not already open. If the connect fai
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    socket.connect(endpoint);
 
 
@@ -19209,9 +19209,9 @@ The socket is automatically opened if it is not already open. If the connect fai
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(
-       std::experimental::net::v1::ip::address::from_string("1.2.3.4"), 12345);
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(
+       std::experimental::net::ip::address::from_string("1.2.3.4"), 12345);
    std::error_code ec;
    socket.connect(endpoint, ec);
    if (ec)
@@ -19251,9 +19251,9 @@ Implements the SOL\_SOCKET/SO\_DEBUG socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option(true);
+   std::experimental::net::socket_base::debug option(true);
    socket.set_option(option);
 
 
@@ -19262,9 +19262,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option;
+   std::experimental::net::socket_base::debug option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -19299,9 +19299,9 @@ Implements the SOL\_SOCKET/SO\_DONTROUTE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option(true);
+   std::experimental::net::socket_base::do_not_route option(true);
    socket.set_option(option);
 
 
@@ -19310,9 +19310,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option;
+   std::experimental::net::socket_base::do_not_route option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -19347,9 +19347,9 @@ Implements a custom socket option that determines whether or not an accept opera
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option(true);
+   std::experimental::net::socket_base::enable_connection_aborted option(true);
    acceptor.set_option(option);
 
 
@@ -19358,9 +19358,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option;
+   std::experimental::net::socket_base::enable_connection_aborted option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -19544,9 +19544,9 @@ This function is used to get the current value of an option on the socket.
   
 Getting the value of the SOL\_SOCKET/SO\_KEEPALIVE option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::keep_alive option;
+   std::experimental::net::ip::tcp::socket::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -19596,9 +19596,9 @@ This function is used to get the current value of an option on the socket.
   
 Getting the value of the SOL\_SOCKET/SO\_KEEPALIVE option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::keep_alive option;
+   std::experimental::net::ip::tcp::socket::keep_alive option;
    std::error_code ec;
    socket.get_option(option, ec);
    if (ec)
@@ -19681,9 +19681,9 @@ This function is used to execute an IO control command on the socket.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::bytes_readable command;
+   std::experimental::net::ip::tcp::socket::bytes_readable command;
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -19733,9 +19733,9 @@ This function is used to execute an IO control command on the socket.
   
 Getting the number of bytes ready to read: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::socket::bytes_readable command;
+   std::experimental::net::ip::tcp::socket::bytes_readable command;
    std::error_code ec;
    socket.io_control(command, ec);
    if (ec)
@@ -19793,9 +19793,9 @@ Implements the SOL\_SOCKET/SO\_KEEPALIVE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option(true);
+   std::experimental::net::socket_base::keep_alive option(true);
    socket.set_option(option);
 
 
@@ -19804,9 +19804,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option;
+   std::experimental::net::socket_base::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -19841,9 +19841,9 @@ Implements the SOL\_SOCKET/SO\_LINGER socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option(true, 30);
+   std::experimental::net::socket_base::linger option(true, 30);
    socket.set_option(option);
 
 
@@ -19852,9 +19852,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option;
+   std::experimental::net::socket_base::linger option;
    socket.get_option(option);
    bool is_set = option.enabled();
    unsigned short timeout = option.timeout();
@@ -19917,9 +19917,9 @@ An object that represents the local endpoint of the socket.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.local_endpoint();
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.local_endpoint();
 
 
 
@@ -19966,10 +19966,10 @@ An object that represents the local endpoint of the socket. Returns a default-co
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.local_endpoint(ec);
    if (ec)
    {
      // An error occurred.
@@ -20201,16 +20201,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -20316,16 +20316,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -20424,16 +20424,16 @@ This function is intended to allow the encapsulation of arbitrary non-blocking s
            errno = 0;
            int n = ::sendfile(sock_.native_handle(), fd_, &offset_, 65536);
            ec = std::error_code(n < 0 ? errno : 0,
-               std::experimental::net::v1::error::get_system_category());
+               std::experimental::net::error::get_system_category());
            total_bytes_transferred_ += ec ? 0 : n;
 
            // Retry operation immediately if interrupted by signal.
-           if (ec == std::experimental::net::v1::error::interrupted)
+           if (ec == std::experimental::net::error::interrupted)
              continue;
 
            // Check if we need to run the operation again.
-           if (ec == std::experimental::net::v1::error::would_block
-               || ec == std::experimental::net::v1::error::try_again)
+           if (ec == std::experimental::net::error::would_block
+               || ec == std::experimental::net::error::try_again)
            {
              // We have to wait for the socket to become ready again.
              sock_.async_wait(tcp::socket::wait_write, *this);
@@ -20666,8 +20666,8 @@ This function opens the socket so that it will use the specified protocol.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
-   socket.open(std::experimental::net::v1::ip::tcp::v4());
+   std::experimental::net::ip::tcp::socket socket(io_context);
+   socket.open(std::experimental::net::ip::tcp::v4());
 
 
 
@@ -20712,9 +20712,9 @@ This function opens the socket so that it will use the specified protocol.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    std::error_code ec;
-   socket.open(std::experimental::net::v1::ip::tcp::v4(), ec);
+   socket.open(std::experimental::net::ip::tcp::v4(), ec);
    if (ec)
    {
      // An error occurred.
@@ -20844,9 +20844,9 @@ Implements the SOL\_SOCKET/SO\_OOBINLINE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option(true);
+   std::experimental::net::socket_base::out_of_band_inline option(true);
    socket.set_option(option);
 
 
@@ -20855,9 +20855,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option;
+   std::experimental::net::socket_base::out_of_band_inline option;
    socket.get_option(option);
    bool value = option.value();
 
@@ -20955,7 +20955,7 @@ The read\_some operation may not read all of the requested number of bytes. Cons
   
 To read into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.read_some(std::experimental::net::v1::buffer(data, size));
+   socket.read_some(std::experimental::net::buffer(data, size));
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on reading into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -21093,7 +21093,7 @@ The receive operation may not receive all of the requested number of bytes. Cons
   
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.receive(std::experimental::net::v1::buffer(data, size));
+   socket.receive(std::experimental::net::buffer(data, size));
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -21157,7 +21157,7 @@ The receive operation may not receive all of the requested number of bytes. Cons
   
 To receive into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.receive(std::experimental::net::v1::buffer(data, size), 0);
+   socket.receive(std::experimental::net::buffer(data, size), 0);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on receiving into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -21238,9 +21238,9 @@ Implements the SOL\_SOCKET/SO\_RCVBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option(8192);
+   std::experimental::net::socket_base::receive_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -21249,9 +21249,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option;
+   std::experimental::net::socket_base::receive_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -21286,9 +21286,9 @@ Implements the SOL\_SOCKET/SO\_RCVLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option(1024);
+   std::experimental::net::socket_base::receive_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -21297,9 +21297,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option;
+   std::experimental::net::socket_base::receive_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -21449,9 +21449,9 @@ An object that represents the remote endpoint of the socket.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.remote_endpoint();
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.remote_endpoint();
 
 
 
@@ -21498,10 +21498,10 @@ An object that represents the remote endpoint of the socket. Returns a default-c
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   std::experimental::net::v1::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
+   std::experimental::net::ip::tcp::endpoint endpoint = socket.remote_endpoint(ec);
    if (ec)
    {
      // An error occurred.
@@ -21539,9 +21539,9 @@ Implements the SOL\_SOCKET/SO\_REUSEADDR socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option(true);
+   std::experimental::net::socket_base::reuse_address option(true);
    acceptor.set_option(option);
 
 
@@ -21550,9 +21550,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option;
+   std::experimental::net::socket_base::reuse_address option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -21643,7 +21643,7 @@ The send operation may not transmit all of the data to the peer. Consider using 
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.send(std::experimental::net::v1::buffer(data, size));
+   socket.send(std::experimental::net::buffer(data, size));
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -21707,7 +21707,7 @@ The send operation may not transmit all of the data to the peer. Consider using 
   
 To send a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.send(std::experimental::net::v1::buffer(data, size), 0);
+   socket.send(std::experimental::net::buffer(data, size), 0);
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on sending multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -21788,9 +21788,9 @@ Implements the SOL\_SOCKET/SO\_SNDBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option(8192);
+   std::experimental::net::socket_base::send_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -21799,9 +21799,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option;
+   std::experimental::net::socket_base::send_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -21836,9 +21836,9 @@ Implements the SOL\_SOCKET/SO\_SNDLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option(1024);
+   std::experimental::net::socket_base::send_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -21847,9 +21847,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option;
+   std::experimental::net::socket_base::send_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -21926,9 +21926,9 @@ This function is used to set an option on the socket.
   
 Setting the IPPROTO\_TCP/TCP\_NODELAY option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option(true);
+   std::experimental::net::ip::tcp::no_delay option(true);
    socket.set_option(option);
 
 
@@ -21977,9 +21977,9 @@ This function is used to set an option on the socket.
   
 Setting the IPPROTO\_TCP/TCP\_NODELAY option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option(true);
+   std::experimental::net::ip::tcp::no_delay option(true);
    std::error_code ec;
    socket.set_option(option, ec);
    if (ec)
@@ -22054,9 +22054,9 @@ This function is used to disable send operations, receive operations, or both.
   
 Shutting down the send side of the socket: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.shutdown(std::experimental::net::v1::ip::tcp::socket::shutdown_send);
+   socket.shutdown(std::experimental::net::ip::tcp::socket::shutdown_send);
 
 
 
@@ -22101,10 +22101,10 @@ This function is used to disable send operations, receive operations, or both.
   
 Shutting down the send side of the socket: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   socket.shutdown(std::experimental::net::v1::ip::tcp::socket::shutdown_send, ec);
+   socket.shutdown(std::experimental::net::ip::tcp::socket::shutdown_send, ec);
    if (ec)
    {
      // An error occurred.
@@ -22205,9 +22205,9 @@ This function is used to perform a blocking wait for a socket to enter a ready t
   
 Waiting for a socket to become readable. 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   socket.wait(std::experimental::net::v1::ip::tcp::socket::wait_read);
+   socket.wait(std::experimental::net::ip::tcp::socket::wait_read);
 
 
 
@@ -22252,10 +22252,10 @@ This function is used to perform a blocking wait for a socket to enter a ready t
   
 Waiting for a socket to become readable. 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
    std::error_code ec;
-   socket.wait(std::experimental::net::v1::ip::tcp::socket::wait_read, ec);
+   socket.wait(std::experimental::net::ip::tcp::socket::wait_read, ec);
 
 
 
@@ -22377,7 +22377,7 @@ The write\_some operation may not transmit all of the data to the peer. Consider
   
 To write a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   socket.write_some(std::experimental::net::v1::buffer(data, size));
+   socket.write_some(std::experimental::net::buffer(data, size));
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on writing multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -22597,7 +22597,7 @@ This waitable timer functionality is for use with the C++11 standard library's `
 Performing a blocking wait (C++11): 
 
    // Construct a timer without setting an expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context);
+   std::experimental::net::steady_timer timer(io_context);
 
    // Set an expiry time relative to now.
    timer.expires_after(std::chrono::seconds(5));
@@ -22622,7 +22622,7 @@ Performing an asynchronous wait (C++11):
    ...
 
    // Construct a timer with an absolute expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context,
+   std::experimental::net::steady_timer timer(io_context,
        std::chrono::steady_clock::now() + std::chrono::seconds(60));
 
    // Start an asynchronous wait.
@@ -22655,7 +22655,7 @@ Changing the expiry time of a timer while there are pending asynchronous waits c
 
    void on_timeout(const std::error_code& e)
    {
-     if (e != std::experimental::net::v1::error::operation_aborted)
+     if (e != std::experimental::net::error::operation_aborted)
      {
        // Timer was not cancelled, take necessary action.
      }
@@ -23676,7 +23676,7 @@ The simplest use case involves reading or writing a single buffer of a specified
 
 
 
-   sock.send(std::experimental::net::v1::buffer(data, size)); 
+   sock.send(std::experimental::net::buffer(data, size)); 
 
 
 
@@ -23688,16 +23688,16 @@ An individual buffer may be created from a builtin array, std::vector, std::arra
 
 
    char d1[128];
-   size_t bytes_transferred = sock.receive(std::experimental::net::v1::buffer(d1));
+   size_t bytes_transferred = sock.receive(std::experimental::net::buffer(d1));
 
    std::vector<char> d2(128);
-   bytes_transferred = sock.receive(std::experimental::net::v1::buffer(d2));
+   bytes_transferred = sock.receive(std::experimental::net::buffer(d2));
 
    std::array<char, 128> d3;
-   bytes_transferred = sock.receive(std::experimental::net::v1::buffer(d3));
+   bytes_transferred = sock.receive(std::experimental::net::buffer(d3));
 
    boost::array<char, 128> d4;
-   bytes_transferred = sock.receive(std::experimental::net::v1::buffer(d4)); 
+   bytes_transferred = sock.receive(std::experimental::net::buffer(d4)); 
 
 
 
@@ -23713,11 +23713,11 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::mutable_buffer b1 = ...;
+   std::experimental::net::mutable_buffer b1 = ...;
    std::size_t s1 = b1.size();
    unsigned char* p1 = static_cast<unsigned char*>(b1.data());
 
-   std::experimental::net::v1::const_buffer b2 = ...;
+   std::experimental::net::const_buffer b2 = ...;
    std::size_t s2 = b2.size();
    const void* p2 = b2.data(); 
 
@@ -23741,8 +23741,8 @@ In particular, when used with the [link networking_ts.reference.buffer_size `buf
 
    vector<const_buffer> buffers = ...;
 
-   vector<unsigned char> data(std::experimental::net::v1::buffer_size(buffers));
-   std::experimental::net::v1::buffer_copy(std::experimental::net::v1::buffer(data), buffers); 
+   vector<unsigned char> data(std::experimental::net::buffer_size(buffers));
+   std::experimental::net::buffer_copy(std::experimental::net::buffer(data), buffers); 
 
 
 
@@ -23778,7 +23778,7 @@ A buffer object `b1` created using:
 
 
 
-   b1 = std::experimental::net::v1::buffer(a); 
+   b1 = std::experimental::net::buffer(a); 
 
 
 
@@ -23787,7 +23787,7 @@ represents the entire array, `{ 'a', 'b', 'c', 'd', 'e' }`. An optional second a
 
 
 
-   b2 = std::experimental::net::v1::buffer(a, 3); 
+   b2 = std::experimental::net::buffer(a, 3); 
 
 
 
@@ -23809,7 +23809,7 @@ Both an offset and size may be specified to create a buffer that corresponds to 
 
 
 
-   b4 = std::experimental::net::v1::buffer(b1 + 1, 3); 
+   b4 = std::experimental::net::buffer(b1 + 1, 3); 
 
 
 
@@ -23830,15 +23830,15 @@ To read or write using multiple buffers (i.e. scatter-gather I/O), multiple buff
    boost::array<char, 128> d3;
 
    boost::array<mutable_buffer, 3> bufs1 = {
-     std::experimental::net::v1::buffer(d1),
-     std::experimental::net::v1::buffer(d2),
-     std::experimental::net::v1::buffer(d3) };
+     std::experimental::net::buffer(d1),
+     std::experimental::net::buffer(d2),
+     std::experimental::net::buffer(d3) };
    bytes_transferred = sock.receive(bufs1);
 
    std::vector<const_buffer> bufs2;
-   bufs2.push_back(std::experimental::net::v1::buffer(d1));
-   bufs2.push_back(std::experimental::net::v1::buffer(d2));
-   bufs2.push_back(std::experimental::net::v1::buffer(d3));
+   bufs2.push_back(std::experimental::net::buffer(d1));
+   bufs2.push_back(std::experimental::net::buffer(d2));
+   bufs2.push_back(std::experimental::net::buffer(d3));
    bytes_transferred = sock.send(bufs2); 
 
 
@@ -25218,8 +25218,8 @@ The `buffer_size` function determines the total size of all buffers in the buffe
 
 
    size_t total_size = 0;
-   auto i = std::experimental::net::v1::buffer_sequence_begin(buffers);
-   auto end = std::experimental::net::v1::buffer_sequence_end(buffers);
+   auto i = std::experimental::net::buffer_sequence_begin(buffers);
+   auto end = std::experimental::net::buffer_sequence_end(buffers);
    for (; i != end; ++i)
    {
      const_buffer b(*i);
@@ -25379,7 +25379,7 @@ The successfully connected endpoint.
    tcp::resolver r(io_context);
    tcp::resolver::query q("host", "service");
    tcp::socket s(io_context);
-   std::experimental::net::v1::connect(s, r.resolve(q)); 
+   std::experimental::net::connect(s, r.resolve(q)); 
 
 
 
@@ -25437,7 +25437,7 @@ On success, the successfully connected endpoint. Otherwise, a default-constructe
    tcp::resolver::query q("host", "service");
    tcp::socket s(io_context);
    std::error_code ec;
-   std::experimental::net::v1::connect(s, r.resolve(q), ec);
+   std::experimental::net::connect(s, r.resolve(q), ec);
    if (ec)
    {
      // An error occurred.
@@ -25508,7 +25508,7 @@ An iterator denoting the successfully connected endpoint.
    tcp::resolver::query q("host", "service");
    tcp::resolver::results_type e = r.resolve(q);
    tcp::socket s(io_context);
-   std::experimental::net::v1::connect(s, e.begin(), e.end()); 
+   std::experimental::net::connect(s, e.begin(), e.end()); 
 
 
 
@@ -25569,7 +25569,7 @@ On success, an iterator denoting the successfully connected endpoint. Otherwise,
    tcp::resolver::results_type e = r.resolve(q);
    tcp::socket s(io_context);
    std::error_code ec;
-   std::experimental::net::v1::connect(s, e.begin(), e.end(), ec);
+   std::experimental::net::connect(s, e.begin(), e.end(), ec);
    if (ec)
    {
      // An error occurred.
@@ -25662,7 +25662,7 @@ It would be used with the `std::experimental::net::v1::connect` function as foll
    tcp::resolver r(io_context);
    tcp::resolver::query q("host", "service");
    tcp::socket s(io_context);
-   tcp::endpoint e = std::experimental::net::v1::connect(s,
+   tcp::endpoint e = std::experimental::net::connect(s,
        r.resolve(q), my_connect_condition());
    std::cout << "Connected to: " << e << std::endl; 
 
@@ -25747,7 +25747,7 @@ It would be used with the `std::experimental::net::v1::connect` function as foll
    tcp::resolver::query q("host", "service");
    tcp::socket s(io_context);
    std::error_code ec;
-   tcp::endpoint e = std::experimental::net::v1::connect(s,
+   tcp::endpoint e = std::experimental::net::connect(s,
        r.resolve(q), my_connect_condition(), ec);
    if (ec)
    {
@@ -25848,7 +25848,7 @@ It would be used with the `std::experimental::net::v1::connect` function as foll
    tcp::resolver::query q("host", "service");
    tcp::resolver::results_type e = r.resolve(q);
    tcp::socket s(io_context);
-   tcp::resolver::results_type::iterator i = std::experimental::net::v1::connect(
+   tcp::resolver::results_type::iterator i = std::experimental::net::connect(
        s, e.begin(), e.end(), my_connect_condition());
    std::cout << "Connected to: " << i->endpoint() << std::endl; 
 
@@ -25936,7 +25936,7 @@ It would be used with the `std::experimental::net::v1::connect` function as foll
    tcp::resolver::results_type e = r.resolve(q);
    tcp::socket s(io_context);
    std::error_code ec;
-   tcp::resolver::results_type::iterator i = std::experimental::net::v1::connect(
+   tcp::resolver::results_type::iterator i = std::experimental::net::connect(
        s, e.begin(), e.end(), my_connect_condition());
    if (ec)
    {
@@ -26019,7 +26019,7 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::const_buffer b1 = ...;
+   std::experimental::net::const_buffer b1 = ...;
    std::size_t s1 = b1.size();
    const unsigned char* p1 = static_cast<const unsigned char*>(b1.data());
 
@@ -26841,7 +26841,7 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::const_buffer b1 = ...;
+   std::experimental::net::const_buffer b1 = ...;
    std::size_t s1 = b1.size();
    const unsigned char* p1 = static_cast<const unsigned char*>(b1.data());
 
@@ -27052,7 +27052,7 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::mutable_buffer b1 = ...;
+   std::experimental::net::mutable_buffer b1 = ...;
    std::size_t s1 = b1.size();
    unsigned char* p1 = static_cast<unsigned char*>(b1.data());
 
@@ -27321,7 +27321,7 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::const_buffer b1 = ...;
+   std::experimental::net::const_buffer b1 = ...;
    std::size_t s1 = b1.size();
    const unsigned char* p1 = static_cast<const unsigned char*>(b1.data());
 
@@ -27532,7 +27532,7 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::mutable_buffer b1 = ...;
+   std::experimental::net::mutable_buffer b1 = ...;
    std::size_t s1 = b1.size();
    unsigned char* p1 = static_cast<unsigned char*>(b1.data());
 
@@ -30754,7 +30754,7 @@ This waitable timer functionality is for use with the C++11 standard library's `
 Performing a blocking wait (C++11): 
 
    // Construct a timer without setting an expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context);
+   std::experimental::net::steady_timer timer(io_context);
 
    // Set an expiry time relative to now.
    timer.expires_after(std::chrono::seconds(5));
@@ -30779,7 +30779,7 @@ Performing an asynchronous wait (C++11):
    ...
 
    // Construct a timer with an absolute expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context,
+   std::experimental::net::steady_timer timer(io_context,
        std::chrono::steady_clock::now() + std::chrono::seconds(60));
 
    // Start an asynchronous wait.
@@ -30812,7 +30812,7 @@ Changing the expiry time of a timer while there are pending asynchronous waits c
 
    void on_timeout(const std::error_code& e)
    {
-     if (e != std::experimental::net::v1::error::operation_aborted)
+     if (e != std::experimental::net::error::operation_aborted)
      {
        // Timer was not cancelled, take necessary action.
      }
@@ -31086,7 +31086,7 @@ For example:
 
 
 
-   std::experimental::net::v1::io_context io_context;
+   std::experimental::net::io_context io_context;
    ...
    for (;;)
    {
@@ -31122,13 +31122,13 @@ For example:
 
    ...
 
-   std::experimental::net::v1::io_context io_context;
+   std::experimental::net::io_context io_context;
 
    // Submit a function to the io_context.
-   std::experimental::net::v1::post(io_context, my_task);
+   std::experimental::net::post(io_context, my_task);
 
    // Submit a lambda object to the io_context.
-   std::experimental::net::v1::post(io_context,
+   std::experimental::net::post(io_context,
        []()
        {
          ...
@@ -31149,9 +31149,9 @@ Some applications may need to prevent an [link networking_ts.reference.io_contex
 
 
 
-   std::experimental::net::v1::io_context io_context;
-   std::experimental::net::v1::executor_work_guard<std::experimental::net::v1::io_context::executor_type>
-     = std::experimental::net::v1::make_work_guard(io_context);
+   std::experimental::net::io_context io_context;
+   std::experimental::net::executor_work_guard<std::experimental::net::io_context::executor_type>
+     = std::experimental::net::make_work_guard(io_context);
    ... 
 
 
@@ -31163,9 +31163,9 @@ Alternatively, if the application requires that all operations and handlers be a
 
 
 
-   std::experimental::net::v1::io_context io_context;
-   std::experimental::net::v1::executor_work_guard<std::experimental::net::v1::io_context::executor_type>
-     = std::experimental::net::v1::make_work_guard(io_context);
+   std::experimental::net::io_context io_context;
+   std::experimental::net::executor_work_guard<std::experimental::net::io_context::executor_type>
+     = std::experimental::net::make_work_guard(io_context);
    ...
    work.reset(); // Allow run() to exit. 
 
@@ -37944,14 +37944,14 @@ Construct an endpoint using a port number, specified in the host's byte order. T
   
 To initialise an IPv4 TCP endpoint for port 1234, use: 
 
-   std::experimental::net::v1::ip::tcp::endpoint ep(std::experimental::net::v1::ip::tcp::v4(), 1234);
+   std::experimental::net::ip::tcp::endpoint ep(std::experimental::net::ip::tcp::v4(), 1234);
 
 
 
 
 To specify an IPv6 UDP endpoint for port 9876, use: 
 
-   std::experimental::net::v1::ip::udp::endpoint ep(std::experimental::net::v1::ip::udp::v6(), 9876);
+   std::experimental::net::ip::udp::endpoint ep(std::experimental::net::ip::udp::v6(), 9876);
 
 
 
@@ -42666,9 +42666,9 @@ Implements the IPPROTO\_IP/IP\_MULTICAST\_LOOP socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::multicast::enable_loopback option(true);
+   std::experimental::net::ip::multicast::enable_loopback option(true);
    socket.set_option(option);
 
 
@@ -42677,9 +42677,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::multicast::enable_loopback option;
+   std::experimental::net::ip::multicast::enable_loopback option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -42711,9 +42711,9 @@ Implements the IPPROTO\_IP/IP\_MULTICAST\_TTL socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::multicast::hops option(4);
+   std::experimental::net::ip::multicast::hops option(4);
    socket.set_option(option);
 
 
@@ -42722,9 +42722,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::multicast::hops option;
+   std::experimental::net::ip::multicast::hops option;
    socket.get_option(option);
    int ttl = option.value();
 
@@ -42756,11 +42756,11 @@ Implements the IPPROTO\_IP/IP\_ADD\_MEMBERSHIP socket option.
   
 Setting the option to join a multicast group: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::address multicast_address =
-     std::experimental::net::v1::ip::address::from_string("225.0.0.1");
-   std::experimental::net::v1::ip::multicast::join_group option(multicast_address);
+   std::experimental::net::ip::address multicast_address =
+     std::experimental::net::ip::address::from_string("225.0.0.1");
+   std::experimental::net::ip::multicast::join_group option(multicast_address);
    socket.set_option(option);
 
 
@@ -42791,11 +42791,11 @@ Implements the IPPROTO\_IP/IP\_DROP\_MEMBERSHIP socket option.
   
 Setting the option to leave a multicast group: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::address multicast_address =
-     std::experimental::net::v1::ip::address::from_string("225.0.0.1");
-   std::experimental::net::v1::ip::multicast::leave_group option(multicast_address);
+   std::experimental::net::ip::address multicast_address =
+     std::experimental::net::ip::address::from_string("225.0.0.1");
+   std::experimental::net::ip::multicast::leave_group option(multicast_address);
    socket.set_option(option);
 
 
@@ -42826,11 +42826,11 @@ Implements the IPPROTO\_IP/IP\_MULTICAST\_IF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::address_v4 local_interface =
-     std::experimental::net::v1::ip::address_v4::from_string("1.2.3.4");
-   std::experimental::net::v1::ip::multicast::outbound_interface option(local_interface);
+   std::experimental::net::ip::address_v4 local_interface =
+     std::experimental::net::ip::address_v4::from_string("1.2.3.4");
+   std::experimental::net::ip::multicast::outbound_interface option(local_interface);
    socket.set_option(option);
 
 
@@ -44797,10 +44797,10 @@ The [link networking_ts.reference.basic_socket_acceptor `basic_socket_acceptor`]
   
 Opening a socket acceptor with the SO\_REUSEADDR option enabled: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context);
-   std::experimental::net::v1::ip::tcp::endpoint endpoint(std::experimental::net::v1::ip::tcp::v4(), port);
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context);
+   std::experimental::net::ip::tcp::endpoint endpoint(std::experimental::net::ip::tcp::v4(), port);
    acceptor.open(endpoint.protocol());
-   acceptor.set_option(std::experimental::net::v1::ip::tcp::acceptor::reuse_address(true));
+   acceptor.set_option(std::experimental::net::ip::tcp::acceptor::reuse_address(true));
    acceptor.bind(endpoint);
    acceptor.listen();
 
@@ -45137,9 +45137,9 @@ Implements the IPPROTO\_TCP/TCP\_NODELAY socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option(true);
+   std::experimental::net::ip::tcp::no_delay option(true);
    socket.set_option(option);
 
 
@@ -45148,9 +45148,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::tcp::no_delay option;
+   std::experimental::net::ip::tcp::no_delay option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -46735,9 +46735,9 @@ Implements the IPPROTO\_IP/IP\_UNICAST\_TTL socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::unicast::hops option(4);
+   std::experimental::net::ip::unicast::hops option(4);
    socket.set_option(option);
 
 
@@ -46746,9 +46746,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::unicast::hops option;
+   std::experimental::net::ip::unicast::hops option;
    socket.get_option(option);
    int ttl = option.value();
 
@@ -46805,9 +46805,9 @@ Implements the IPPROTO\_IPV6/IP\_V6ONLY socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::v6_only option(true);
+   std::experimental::net::ip::v6_only option(true);
    socket.set_option(option);
 
 
@@ -46816,9 +46816,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::ip::v6_only option;
+   std::experimental::net::ip::v6_only option;
    socket.get_option(option);
    bool v6_only = option.value();
 
@@ -47168,7 +47168,7 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::mutable_buffer b1 = ...;
+   std::experimental::net::mutable_buffer b1 = ...;
    std::size_t s1 = b1.size();
    unsigned char* p1 = static_cast<unsigned char*>(b1.data());
 
@@ -47471,7 +47471,7 @@ The contents of a buffer may be accessed using the `data()` and `size()` member 
 
 
 
-   std::experimental::net::v1::mutable_buffer b1 = ...;
+   std::experimental::net::mutable_buffer b1 = ...;
    std::size_t s1 = b1.size();
    unsigned char* p1 = static_cast<unsigned char*>(b1.data());
 
@@ -47786,7 +47786,7 @@ The number of bytes transferred.
   
 To read into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::read(s, std::experimental::net::v1::buffer(data, size)); 
+   std::experimental::net::read(s, std::experimental::net::buffer(data, size)); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on reading into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector.
@@ -47796,9 +47796,9 @@ See the [link networking_ts.reference.buffer `buffer`]  documentation for inform
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::read(
+   std::experimental::net::read(
        s, buffers,
-       std::experimental::net::v1::transfer_all()); 
+       std::experimental::net::transfer_all()); 
 
 
 
@@ -47860,7 +47860,7 @@ The number of bytes transferred.
   
 To read into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::read(s, std::experimental::net::v1::buffer(data, size), ec); 
+   std::experimental::net::read(s, std::experimental::net::buffer(data, size), ec); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on reading into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector.
@@ -47870,9 +47870,9 @@ See the [link networking_ts.reference.buffer `buffer`]  documentation for inform
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::read(
+   std::experimental::net::read(
        s, buffers,
-       std::experimental::net::v1::transfer_all(), ec); 
+       std::experimental::net::transfer_all(), ec); 
 
 
 
@@ -47955,8 +47955,8 @@ The number of bytes transferred.
   
 To read into a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::read(s, std::experimental::net::v1::buffer(data, size),
-       std::experimental::net::v1::transfer_at_least(32)); 
+   std::experimental::net::read(s, std::experimental::net::buffer(data, size),
+       std::experimental::net::transfer_at_least(32)); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on reading into multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -48091,9 +48091,9 @@ The number of bytes transferred.
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::read(
+   std::experimental::net::read(
        s, buffers,
-       std::experimental::net::v1::transfer_all()); 
+       std::experimental::net::transfer_all()); 
 
 
 
@@ -48155,9 +48155,9 @@ The number of bytes transferred.
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::read(
+   std::experimental::net::read(
        s, buffers,
-       std::experimental::net::v1::transfer_all(), ec); 
+       std::experimental::net::transfer_all(), ec); 
 
 
 
@@ -48419,8 +48419,8 @@ After a successful read\_until operation, the dynamic buffer sequence may contai
 To read data into a `std::string` until a newline is encountered: 
 
    std::string data;
-   std::string n = std::experimental::net::v1::read_until(s,
-       std::experimental::net::v1::dynamic_buffer(data), '\n');
+   std::string n = std::experimental::net::read_until(s,
+       std::experimental::net::dynamic_buffer(data), '\n');
    std::string line = data.substr(0, n);
    data.erase(0, n); 
 
@@ -48563,8 +48563,8 @@ After a successful read\_until operation, the dynamic buffer sequence may contai
 To read data into a `std::string` until a CR-LF sequence is encountered: 
 
    std::string data;
-   std::string n = std::experimental::net::v1::read_until(s,
-       std::experimental::net::v1::dynamic_buffer(data), "\r\n");
+   std::string n = std::experimental::net::read_until(s,
+       std::experimental::net::dynamic_buffer(data), "\r\n");
    std::string line = data.substr(0, n);
    data.erase(0, n); 
 
@@ -48887,9 +48887,9 @@ Implements the SOL\_SOCKET/SO\_BROADCAST socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option(true);
+   std::experimental::net::socket_base::broadcast option(true);
    socket.set_option(option);
 
 
@@ -48898,9 +48898,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::broadcast option;
+   std::experimental::net::socket_base::broadcast option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -48932,9 +48932,9 @@ Implements the FIONREAD IO control command.
   
 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::bytes_readable command(true);
+   std::experimental::net::socket_base::bytes_readable command(true);
    socket.io_control(command);
    std::size_t bytes_readable = command.get();
 
@@ -48966,9 +48966,9 @@ Implements the SOL\_SOCKET/SO\_DEBUG socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option(true);
+   std::experimental::net::socket_base::debug option(true);
    socket.set_option(option);
 
 
@@ -48977,9 +48977,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::debug option;
+   std::experimental::net::socket_base::debug option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -49011,9 +49011,9 @@ Implements the SOL\_SOCKET/SO\_DONTROUTE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option(true);
+   std::experimental::net::socket_base::do_not_route option(true);
    socket.set_option(option);
 
 
@@ -49022,9 +49022,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::udp::socket socket(io_context); 
+   std::experimental::net::ip::udp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::do_not_route option;
+   std::experimental::net::socket_base::do_not_route option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -49056,9 +49056,9 @@ Implements a custom socket option that determines whether or not an accept opera
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option(true);
+   std::experimental::net::socket_base::enable_connection_aborted option(true);
    acceptor.set_option(option);
 
 
@@ -49067,9 +49067,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::enable_connection_aborted option;
+   std::experimental::net::socket_base::enable_connection_aborted option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -49101,9 +49101,9 @@ Implements the SOL\_SOCKET/SO\_KEEPALIVE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option(true);
+   std::experimental::net::socket_base::keep_alive option(true);
    socket.set_option(option);
 
 
@@ -49112,9 +49112,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::keep_alive option;
+   std::experimental::net::socket_base::keep_alive option;
    socket.get_option(option);
    bool is_set = option.value();
 
@@ -49146,9 +49146,9 @@ Implements the SOL\_SOCKET/SO\_LINGER socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option(true, 30);
+   std::experimental::net::socket_base::linger option(true, 30);
    socket.set_option(option);
 
 
@@ -49157,9 +49157,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::linger option;
+   std::experimental::net::socket_base::linger option;
    socket.get_option(option);
    bool is_set = option.enabled();
    unsigned short timeout = option.timeout();
@@ -49277,9 +49277,9 @@ Implements the SOL\_SOCKET/SO\_OOBINLINE socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option(true);
+   std::experimental::net::socket_base::out_of_band_inline option(true);
    socket.set_option(option);
 
 
@@ -49288,9 +49288,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context);
+   std::experimental::net::ip::tcp::socket socket(io_context);
    ...
-   std::experimental::net::v1::socket_base::out_of_band_inline option;
+   std::experimental::net::socket_base::out_of_band_inline option;
    socket.get_option(option);
    bool value = option.value();
 
@@ -49322,9 +49322,9 @@ Implements the SOL\_SOCKET/SO\_RCVBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option(8192);
+   std::experimental::net::socket_base::receive_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -49333,9 +49333,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_buffer_size option;
+   std::experimental::net::socket_base::receive_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -49367,9 +49367,9 @@ Implements the SOL\_SOCKET/SO\_RCVLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option(1024);
+   std::experimental::net::socket_base::receive_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -49378,9 +49378,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::receive_low_watermark option;
+   std::experimental::net::socket_base::receive_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -49412,9 +49412,9 @@ Implements the SOL\_SOCKET/SO\_REUSEADDR socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option(true);
+   std::experimental::net::socket_base::reuse_address option(true);
    acceptor.set_option(option);
 
 
@@ -49423,9 +49423,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::acceptor acceptor(io_context); 
+   std::experimental::net::ip::tcp::acceptor acceptor(io_context); 
    ...
-   std::experimental::net::v1::socket_base::reuse_address option;
+   std::experimental::net::socket_base::reuse_address option;
    acceptor.get_option(option);
    bool is_set = option.value();
 
@@ -49457,9 +49457,9 @@ Implements the SOL\_SOCKET/SO\_SNDBUF socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option(8192);
+   std::experimental::net::socket_base::send_buffer_size option(8192);
    socket.set_option(option);
 
 
@@ -49468,9 +49468,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_buffer_size option;
+   std::experimental::net::socket_base::send_buffer_size option;
    socket.get_option(option);
    int size = option.value();
 
@@ -49502,9 +49502,9 @@ Implements the SOL\_SOCKET/SO\_SNDLOWAT socket option.
   
 Setting the option: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option(1024);
+   std::experimental::net::socket_base::send_low_watermark option(1024);
    socket.set_option(option);
 
 
@@ -49513,9 +49513,9 @@ Setting the option:
 
 Getting the current option value: 
 
-   std::experimental::net::v1::ip::tcp::socket socket(io_context); 
+   std::experimental::net::ip::tcp::socket socket(io_context); 
    ...
-   std::experimental::net::v1::socket_base::send_low_watermark option;
+   std::experimental::net::socket_base::send_low_watermark option;
    socket.get_option(option);
    int size = option.value();
 
@@ -49760,7 +49760,7 @@ This waitable timer functionality is for use with the C++11 standard library's `
 Performing a blocking wait (C++11): 
 
    // Construct a timer without setting an expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context);
+   std::experimental::net::steady_timer timer(io_context);
 
    // Set an expiry time relative to now.
    timer.expires_after(std::chrono::seconds(5));
@@ -49785,7 +49785,7 @@ Performing an asynchronous wait (C++11):
    ...
 
    // Construct a timer with an absolute expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context,
+   std::experimental::net::steady_timer timer(io_context,
        std::chrono::steady_clock::now() + std::chrono::seconds(60));
 
    // Start an asynchronous wait.
@@ -49818,7 +49818,7 @@ Changing the expiry time of a timer while there are pending asynchronous waits c
 
    void on_timeout(const std::error_code& e)
    {
-     if (e != std::experimental::net::v1::error::operation_aborted)
+     if (e != std::experimental::net::error::operation_aborted)
      {
        // Timer was not cancelled, take necessary action.
      }
@@ -51547,7 +51547,7 @@ This waitable timer functionality is for use with the C++11 standard library's `
 Performing a blocking wait (C++11): 
 
    // Construct a timer without setting an expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context);
+   std::experimental::net::steady_timer timer(io_context);
 
    // Set an expiry time relative to now.
    timer.expires_after(std::chrono::seconds(5));
@@ -51572,7 +51572,7 @@ Performing an asynchronous wait (C++11):
    ...
 
    // Construct a timer with an absolute expiry time.
-   std::experimental::net::v1::steady_timer timer(io_context,
+   std::experimental::net::steady_timer timer(io_context,
        std::chrono::steady_clock::now() + std::chrono::seconds(60));
 
    // Start an asynchronous wait.
@@ -51605,7 +51605,7 @@ Changing the expiry time of a timer while there are pending asynchronous waits c
 
    void on_timeout(const std::error_code& e)
    {
-     if (e != std::experimental::net::v1::error::operation_aborted)
+     if (e != std::experimental::net::error::operation_aborted)
      {
        // Timer was not cancelled, take necessary action.
      }
@@ -51653,9 +51653,9 @@ Reading until a buffer is full:
 
    boost::array<char, 128> buf;
    std::error_code ec;
-   std::size_t n = std::experimental::net::v1::read(
-       sock, std::experimental::net::v1::buffer(buf),
-       std::experimental::net::v1::transfer_all(), ec);
+   std::size_t n = std::experimental::net::read(
+       sock, std::experimental::net::buffer(buf),
+       std::experimental::net::transfer_all(), ec);
    if (ec)
    {
      // An error occurred.
@@ -51694,9 +51694,9 @@ Reading until a buffer is full or contains at least 64 bytes:
 
    boost::array<char, 128> buf;
    std::error_code ec;
-   std::size_t n = std::experimental::net::v1::read(
-       sock, std::experimental::net::v1::buffer(buf),
-       std::experimental::net::v1::transfer_at_least(64), ec);
+   std::size_t n = std::experimental::net::read(
+       sock, std::experimental::net::buffer(buf),
+       std::experimental::net::transfer_at_least(64), ec);
    if (ec)
    {
      // An error occurred.
@@ -51735,9 +51735,9 @@ Reading until a buffer is full or contains exactly 64 bytes:
 
    boost::array<char, 128> buf;
    std::error_code ec;
-   std::size_t n = std::experimental::net::v1::read(
-       sock, std::experimental::net::v1::buffer(buf),
-       std::experimental::net::v1::transfer_exactly(64), ec);
+   std::size_t n = std::experimental::net::read(
+       sock, std::experimental::net::buffer(buf),
+       std::experimental::net::transfer_exactly(64), ec);
    if (ec)
    {
      // An error occurred.
@@ -51829,7 +51829,7 @@ The [link networking_ts.reference.use_future_t `use_future_t`] class is used to 
 
 
    std::future<std::size_t> my_future
-     = my_socket.async_read_some(my_buffer, std::experimental::net::v1::use_future); 
+     = my_socket.async_read_some(my_buffer, std::experimental::net::use_future); 
 
 
 
@@ -52221,7 +52221,7 @@ The number of bytes transferred.
   
 To write a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::write(s, std::experimental::net::v1::buffer(data, size)); 
+   std::experimental::net::write(s, std::experimental::net::buffer(data, size)); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on writing multiple buffers in one go, and how to use it with arrays, boost::array or std::vector.
@@ -52231,9 +52231,9 @@ See the [link networking_ts.reference.buffer `buffer`]  documentation for inform
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::write(
+   std::experimental::net::write(
        s, buffers,
-       std::experimental::net::v1::transfer_all()); 
+       std::experimental::net::transfer_all()); 
 
 
 
@@ -52295,7 +52295,7 @@ The number of bytes transferred.
   
 To write a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::write(s, std::experimental::net::v1::buffer(data, size), ec); 
+   std::experimental::net::write(s, std::experimental::net::buffer(data, size), ec); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on writing multiple buffers in one go, and how to use it with arrays, boost::array or std::vector.
@@ -52305,9 +52305,9 @@ See the [link networking_ts.reference.buffer `buffer`]  documentation for inform
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::write(
+   std::experimental::net::write(
        s, buffers,
-       std::experimental::net::v1::transfer_all(), ec); 
+       std::experimental::net::transfer_all(), ec); 
 
 
 
@@ -52390,8 +52390,8 @@ The number of bytes transferred.
   
 To write a single data buffer use the [link networking_ts.reference.buffer `buffer`]  function as follows: 
 
-   std::experimental::net::v1::write(s, std::experimental::net::v1::buffer(data, size),
-       std::experimental::net::v1::transfer_at_least(32)); 
+   std::experimental::net::write(s, std::experimental::net::buffer(data, size),
+       std::experimental::net::transfer_at_least(32)); 
 
 
 See the [link networking_ts.reference.buffer `buffer`]  documentation for information on writing multiple buffers in one go, and how to use it with arrays, boost::array or std::vector. 
@@ -52526,9 +52526,9 @@ The number of bytes transferred.
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::write(
+   std::experimental::net::write(
        s, buffers,
-       std::experimental::net::v1::transfer_all()); 
+       std::experimental::net::transfer_all()); 
 
 
 
@@ -52590,9 +52590,9 @@ The number of bytes transferred.
       
 This overload is equivalent to calling: 
 
-   std::experimental::net::v1::write(
+   std::experimental::net::write(
        s, buffers,
-       std::experimental::net::v1::transfer_all(), ec); 
+       std::experimental::net::transfer_all(), ec); 
 
 
 
